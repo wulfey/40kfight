@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datasheet_id: 1
+  fourth_weapon_id: 1
+  datasheet: one
+  fourth_weapon: one
+
+two:
+  datasheet_id: 1
+  fourth_weapon_id: 1
+  datasheet: two
+  fourth_weapon: two

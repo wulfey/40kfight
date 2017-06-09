@@ -1,0 +1,107 @@
+<%= form_for(detachment) do |f| %>
+  <% if detachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detachment.errors.count, "error") %> prohibited this detachment from being saved:</h2>
+
+      <ul>
+      <% detachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :command_points %>
+    <%= f.number_field :command_points %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_troops %>
+    <%= f.number_field :min_troops %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_elites %>
+    <%= f.number_field :min_elites %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_fast %>
+    <%= f.number_field :min_fast %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_heavy %>
+    <%= f.number_field :min_heavy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_hq %>
+    <%= f.number_field :min_hq %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_lord %>
+    <%= f.number_field :min_lord %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_flyer %>
+    <%= f.number_field :min_flyer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dedicated_allowed %>
+    <%= f.check_box :dedicated_allowed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_troops %>
+    <%= f.number_field :max_troops %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_elites %>
+    <%= f.number_field :max_elites %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_fast %>
+    <%= f.number_field :max_fast %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_heavy %>
+    <%= f.number_field :max_heavy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_hq %>
+    <%= f.number_field :max_hq %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_lord %>
+    <%= f.number_field :max_lord %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max_flyer %>
+    <%= f.number_field :max_flyer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :list_id %>
+    <%= f.text_field :list_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Valid Detachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Command points</th>
+      <th>Min troops</th>
+      <th>Min elites</th>
+      <th>Min fast</th>
+      <th>Min heavy</th>
+      <th>Min hq</th>
+      <th>Min lord</th>
+      <th>Min flyer</th>
+      <th>Dedicated allowed</th>
+      <th>Max troops</th>
+      <th>Max elites</th>
+      <th>Max fast</th>
+      <th>Max heavy</th>
+      <th>Max hq</th>
+      <th>Max lord</th>
+      <th>Max flyer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valid_detachments.each do |valid_detachment| %>
+      <tr>
+        <td><%= valid_detachment.name %></td>
+        <td><%= valid_detachment.command_points %></td>
+        <td><%= valid_detachment.min_troops %></td>
+        <td><%= valid_detachment.min_elites %></td>
+        <td><%= valid_detachment.min_fast %></td>
+        <td><%= valid_detachment.min_heavy %></td>
+        <td><%= valid_detachment.min_hq %></td>
+        <td><%= valid_detachment.min_lord %></td>
+        <td><%= valid_detachment.min_flyer %></td>
+        <td><%= valid_detachment.dedicated_allowed %></td>
+        <td><%= valid_detachment.max_troops %></td>
+        <td><%= valid_detachment.max_elites %></td>
+        <td><%= valid_detachment.max_fast %></td>
+        <td><%= valid_detachment.max_heavy %></td>
+        <td><%= valid_detachment.max_hq %></td>
+        <td><%= valid_detachment.max_lord %></td>
+        <td><%= valid_detachment.max_flyer %></td>
+        <td><%= link_to 'Show', valid_detachment %></td>
+        <td><%= link_to 'Edit', edit_valid_detachment_path(valid_detachment) %></td>
+        <td><%= link_to 'Destroy', valid_detachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valid Detachment', new_valid_detachment_path %>

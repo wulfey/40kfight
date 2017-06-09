@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  role: MyText
+  power: 1
+  movemovent: 1
+  shooting_skill: 1
+  strength: 1
+  combat_skill: 1
+  attacks: 1
+  wounds: 1
+  leadership: 1
+  armor_save: 1
+  invul_shooting: 1
+  invul_combat: 1
+  single_model_point_cost: 1
+  model_count_increment: 1
+  power_for_each_increment: 1
+  min_model_count: 1
+  max_model_count: 1
+  detachment: one
+
+two:
+  name: MyText
+  role: MyText
+  power: 1
+  movemovent: 1
+  shooting_skill: 1
+  strength: 1
+  combat_skill: 1
+  attacks: 1
+  wounds: 1
+  leadership: 1
+  armor_save: 1
+  invul_shooting: 1
+  invul_combat: 1
+  single_model_point_cost: 1
+  model_count_increment: 1
+  power_for_each_increment: 1
+  min_model_count: 1
+  max_model_count: 1
+  detachment: two

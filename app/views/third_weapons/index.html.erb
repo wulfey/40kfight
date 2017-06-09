@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Third Weapons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ranged</th>
+      <th>Melee</th>
+      <th>Primaryaddedmeleestr</th>
+      <th>Secondaryaddedmeleestr</th>
+      <th>Primarymeleerend</th>
+      <th>Secondarymeleerend</th>
+      <th>Firstshootattacks</th>
+      <th>Firstshootattacksd3</th>
+      <th>Firstshootattacksd6</th>
+      <th>Secondshootattacks</th>
+      <th>Secondshootattacksd3</th>
+      <th>Secondshootattacksd6</th>
+      <th>Thirdshootattacks</th>
+      <th>Fourthshootattacks</th>
+      <th>Firstrange</th>
+      <th>Secondrange</th>
+      <th>Thirdrange</th>
+      <th>Fourthrange</th>
+      <th>Firstshootattacks</th>
+      <th>Secondshootattacks</th>
+      <th>Thirdshootattacks</th>
+      <th>Fourthshootattacks</th>
+      <th>Firstshootattacksdamaged3</th>
+      <th>Firstshootattacksdamaged6</th>
+      <th>Secondshootattacksdamaged3</th>
+      <th>Secondshootattacksdamaged6</th>
+      <th>Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @third_weapons.each do |third_weapon| %>
+      <tr>
+        <td><%= third_weapon.ranged %></td>
+        <td><%= third_weapon.melee %></td>
+        <td><%= third_weapon.primaryAddedMeleeStr %></td>
+        <td><%= third_weapon.secondaryAddedMeleeStr %></td>
+        <td><%= third_weapon.primaryMeleeRend %></td>
+        <td><%= third_weapon.secondaryMeleeRend %></td>
+        <td><%= third_weapon.firstShootAttacks %></td>
+        <td><%= third_weapon.firstShootAttacksD3 %></td>
+        <td><%= third_weapon.firstShootAttacksD6 %></td>
+        <td><%= third_weapon.secondShootAttacks %></td>
+        <td><%= third_weapon.secondShootAttacksD3 %></td>
+        <td><%= third_weapon.secondShootAttacksD6 %></td>
+        <td><%= third_weapon.thirdShootAttacks %></td>
+        <td><%= third_weapon.fourthShootAttacks %></td>
+        <td><%= third_weapon.firstRange %></td>
+        <td><%= third_weapon.secondRange %></td>
+        <td><%= third_weapon.thirdRange %></td>
+        <td><%= third_weapon.fourthRange %></td>
+        <td><%= third_weapon.firstShootAttacks %></td>
+        <td><%= third_weapon.secondShootAttacks %></td>
+        <td><%= third_weapon.thirdShootAttacks %></td>
+        <td><%= third_weapon.fourthShootAttacks %></td>
+        <td><%= third_weapon.firstShootAttacksDamageD3 %></td>
+        <td><%= third_weapon.firstShootAttacksDamageD6 %></td>
+        <td><%= third_weapon.secondShootAttacksDamageD3 %></td>
+        <td><%= third_weapon.secondShootAttacksDamageD6 %></td>
+        <td><%= third_weapon.points %></td>
+        <td><%= link_to 'Show', third_weapon %></td>
+        <td><%= link_to 'Edit', edit_third_weapon_path(third_weapon) %></td>
+        <td><%= link_to 'Destroy', third_weapon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Third Weapon', new_third_weapon_path %>

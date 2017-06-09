@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unit.name %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @unit.role %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @unit.power %>
+</p>
+
+<p>
+  <strong>Movemovent:</strong>
+  <%= @unit.movemovent %>
+</p>
+
+<p>
+  <strong>Shooting skill:</strong>
+  <%= @unit.shooting_skill %>
+</p>
+
+<p>
+  <strong>Strength:</strong>
+  <%= @unit.strength %>
+</p>
+
+<p>
+  <strong>Combat skill:</strong>
+  <%= @unit.combat_skill %>
+</p>
+
+<p>
+  <strong>Attacks:</strong>
+  <%= @unit.attacks %>
+</p>
+
+<p>
+  <strong>Wounds:</strong>
+  <%= @unit.wounds %>
+</p>
+
+<p>
+  <strong>Leadership:</strong>
+  <%= @unit.leadership %>
+</p>
+
+<p>
+  <strong>Armor save:</strong>
+  <%= @unit.armor_save %>
+</p>
+
+<p>
+  <strong>Invul shooting:</strong>
+  <%= @unit.invul_shooting %>
+</p>
+
+<p>
+  <strong>Invul combat:</strong>
+  <%= @unit.invul_combat %>
+</p>
+
+<p>
+  <strong>Single model point cost:</strong>
+  <%= @unit.single_model_point_cost %>
+</p>
+
+<p>
+  <strong>Model count increment:</strong>
+  <%= @unit.model_count_increment %>
+</p>
+
+<p>
+  <strong>Power for each increment:</strong>
+  <%= @unit.power_for_each_increment %>
+</p>
+
+<p>
+  <strong>Min model count:</strong>
+  <%= @unit.min_model_count %>
+</p>
+
+<p>
+  <strong>Max model count:</strong>
+  <%= @unit.max_model_count %>
+</p>
+
+<p>
+  <strong>Detachment:</strong>
+  <%= @unit.detachment %>
+</p>
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>

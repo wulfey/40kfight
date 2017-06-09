@@ -1,0 +1,2 @@
+class ValidDetachment < ApplicationRecord
+end

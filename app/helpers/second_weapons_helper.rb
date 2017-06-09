@@ -1,0 +1,2 @@
+module SecondWeaponsHelper
+end

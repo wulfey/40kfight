@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  command_points: 1
+  min_troops: 1
+  min_elites: 1
+  min_fast: 1
+  min_heavy: 1
+  min_hq: 1
+  min_lord: 1
+  min_flyer: 1
+  dedicated_allowed: false
+  max_troops: 1
+  max_elites: 1
+  max_fast: 1
+  max_heavy: 1
+  max_hq: 1
+  max_lord: 1
+  max_flyer: 1
+  list: one
+
+two:
+  name: MyText
+  command_points: 1
+  min_troops: 1
+  min_elites: 1
+  min_fast: 1
+  min_heavy: 1
+  min_hq: 1
+  min_lord: 1
+  min_flyer: 1
+  dedicated_allowed: false
+  max_troops: 1
+  max_elites: 1
+  max_fast: 1
+  max_heavy: 1
+  max_hq: 1
+  max_lord: 1
+  max_flyer: 1
+  list: two

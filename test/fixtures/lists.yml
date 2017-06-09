@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  private: false
+  used_points: 1
+  available_points: 1
+  user: one
+  user_id: 1
+
+two:
+  name: MyText
+  private: false
+  used_points: 1
+  available_points: 1
+  user: two
+  user_id: 1
