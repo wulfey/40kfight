@@ -4,7 +4,7 @@ class CreateUnits < ActiveRecord::Migration[5.0]
       t.text :name
       t.text :role
       t.integer :power
-      t.integer :movemovent
+      t.integer :movement
       t.integer :shooting_skill
       t.integer :strength
       t.integer :combat_skill

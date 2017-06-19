@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_simulation_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Simulation
+  <% end %>
+  <h1>Listing simulations</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>User</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @simulations) do |simulation| %>
+            <td><%= simulation.user %></td>
+            <td><%= link_to 'Show', simulation %></td>
+        <td><%= link_to 'Edit', edit_simulation_path(simulation) %></td>
+        <td><%= link_to 'Destroy', simulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

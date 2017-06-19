@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  simulation: one
+  attacker: MyString
+  target: MyString
+  string: MyString
+  dice: 1
+  description: MyText
+  woundsdealt: 1
+  average: 1.5
+  toughness: 1
+  armor: 1
+  invul: 1
+
+two:
+  simulation: two
+  attacker: MyString
+  target: MyString
+  string: MyString
+  dice: 1
+  description: MyText
+  woundsdealt: 1
+  average: 1.5
+  toughness: 1
+  armor: 1
+  invul: 1

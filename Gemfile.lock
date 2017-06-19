@@ -52,11 +52,11 @@ GEM
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap (4.0.0.alpha6)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
     bootstrap-generators (3.3.4)
       railties (>= 3.1.0)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.1.0)
@@ -298,10 +298,16 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    record_tag_helper (1.0.0)
+      actionview (~> 5.x)
     redis (3.3.3)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    roo (2.7.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    rubyzip (1.2.1)
     sass (3.4.24)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -350,8 +356,8 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 2)
   bcrypt (~> 3.1.7)
-  bootstrap (~> 4.0.0.alpha6)
   bootstrap-generators
+  bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave
   coffee-rails (~> 4.2)
@@ -367,8 +373,10 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails_12factor
+  record_tag_helper (~> 1.0)
   redis (~> 3.2)
-  sass-rails
+  roo
+  sass-rails (>= 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

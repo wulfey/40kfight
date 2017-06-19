@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608220506) do
+ActiveRecord::Schema.define(version: 20170617003337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.text     "name"
     t.text     "role"
     t.integer  "power"
-    t.integer  "movemovent"
     t.integer  "shooting_skill"
     t.integer  "strength"
     t.integer  "combat_skill"
@@ -34,12 +33,17 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "power_for_each_increment"
     t.integer  "min_model_count"
     t.integer  "max_model_count"
-    t.boolean  "first_slot"
-    t.boolean  "second_slot"
-    t.boolean  "third_slot"
-    t.boolean  "fourth_slot"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.boolean  "first_slot",               default: true
+    t.boolean  "second_slot",              default: false
+    t.boolean  "third_slot",               default: false
+    t.boolean  "fourth_slot",              default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "movement"
+    t.integer  "toughness",                default: 4
+    t.integer  "fnp",                      default: 7
+    t.text     "faction_keywords",         default: [],                 array: true
+    t.text     "keywords",                 default: [],                 array: true
   end
 
   create_table "detachments", force: :cascade do |t|
@@ -63,6 +67,13 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "list_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "cur_troops"
+    t.integer  "cur_elites"
+    t.integer  "cur_fast"
+    t.integer  "cur_heavy"
+    t.integer  "cur_hq"
+    t.integer  "cur_lord"
+    t.integer  "cur_flyer"
     t.index ["list_id"], name: "index_detachments_on_list_id", using: :btree
   end
 
@@ -71,37 +82,52 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "first_weapon_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_first_weapon_slots_on_datasheet_id", using: :btree
     t.index ["first_weapon_id"], name: "index_first_weapon_slots_on_first_weapon_id", using: :btree
+    t.index ["unit_id"], name: "index_first_weapon_slots_on_unit_id", using: :btree
   end
 
   create_table "first_weapons", force: :cascade do |t|
-    t.boolean  "ranged"
-    t.boolean  "melee"
-    t.integer  "primaryAddedMeleeStr"
-    t.integer  "secondaryAddedMeleeStr"
-    t.integer  "primaryMeleeRend"
-    t.integer  "secondaryMeleeRend"
-    t.integer  "firstShootAttacks"
-    t.boolean  "firstShootAttacksD3"
-    t.boolean  "firstShootAttacksD6"
-    t.integer  "secondShootAttacks"
-    t.boolean  "secondShootAttacksD3"
-    t.boolean  "secondShootAttacksD6"
-    t.integer  "thirdShootAttacks"
-    t.integer  "fourthShootAttacks"
+    t.boolean  "ranged",                     default: true
+    t.boolean  "melee",                      default: false
+    t.integer  "primaryAddedMeleeStr",       default: 0
+    t.integer  "secondaryAddedMeleeStr",     default: 0
+    t.integer  "primaryMeleeRend",           default: 0
+    t.integer  "secondaryMeleeRend",         default: 0
+    t.integer  "firstShootAttacks",          default: 0
+    t.boolean  "firstShootAttacksD3",        default: false
+    t.boolean  "firstShootAttacksD6",        default: false
+    t.integer  "secondShootAttacks",         default: 0
+    t.boolean  "secondShootAttacksD3",       default: false
+    t.boolean  "secondShootAttacksD6",       default: false
+    t.integer  "thirdShootAttacks",          default: 0
+    t.integer  "fourthShootAttacks",         default: 0
     t.integer  "firstRange"
     t.integer  "secondRange"
     t.integer  "thirdRange"
     t.integer  "fourthRange"
-    t.boolean  "firstShootAttacksDamageD3"
-    t.boolean  "firstShootAttacksDamageD6"
-    t.boolean  "secondShootAttacksDamageD3"
-    t.boolean  "secondShootAttacksDamageD6"
+    t.boolean  "firstShootAttacksDamageD3",  default: false
+    t.boolean  "firstShootAttacksDamageD6",  default: false
+    t.boolean  "secondShootAttacksDamageD3", default: false
+    t.boolean  "secondShootAttacksDamageD6", default: false
     t.integer  "points"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "name"
+    t.integer  "firstShootDamage",           default: 0
+    t.integer  "secondShootDamage",          default: 0
+    t.integer  "thirdShootDamage",           default: 0
+    t.integer  "fourthShootDamage",          default: 0
+    t.text     "abilities",                  default: [],                 array: true
+    t.integer  "firstShootRend",             default: 0
+    t.integer  "secondShootRend",            default: 0
+    t.integer  "thirdShootRend",             default: 0
+    t.integer  "fourthShootRend",            default: 0
+    t.integer  "firstShootStrength",         default: 4
+    t.integer  "secondShootStrength",        default: 4
+    t.integer  "thirdShootStrength",         default: 4
+    t.integer  "fourthShootStrength",        default: 4
   end
 
   create_table "fourth_weapon_slots", force: :cascade do |t|
@@ -109,37 +135,52 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "fourth_weapon_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_fourth_weapon_slots_on_datasheet_id", using: :btree
     t.index ["fourth_weapon_id"], name: "index_fourth_weapon_slots_on_fourth_weapon_id", using: :btree
+    t.index ["unit_id"], name: "index_fourth_weapon_slots_on_unit_id", using: :btree
   end
 
   create_table "fourth_weapons", force: :cascade do |t|
-    t.boolean  "ranged"
-    t.boolean  "melee"
-    t.integer  "primaryAddedMeleeStr"
-    t.integer  "secondaryAddedMeleeStr"
-    t.integer  "primaryMeleeRend"
-    t.integer  "secondaryMeleeRend"
-    t.integer  "firstShootAttacks"
-    t.boolean  "firstShootAttacksD3"
-    t.boolean  "firstShootAttacksD6"
-    t.integer  "secondShootAttacks"
-    t.boolean  "secondShootAttacksD3"
-    t.boolean  "secondShootAttacksD6"
-    t.integer  "thirdShootAttacks"
-    t.integer  "fourthShootAttacks"
+    t.boolean  "ranged",                     default: true
+    t.boolean  "melee",                      default: false
+    t.integer  "primaryAddedMeleeStr",       default: 0
+    t.integer  "secondaryAddedMeleeStr",     default: 0
+    t.integer  "primaryMeleeRend",           default: 0
+    t.integer  "secondaryMeleeRend",         default: 0
+    t.integer  "firstShootAttacks",          default: 0
+    t.boolean  "firstShootAttacksD3",        default: false
+    t.boolean  "firstShootAttacksD6",        default: false
+    t.integer  "secondShootAttacks",         default: 0
+    t.boolean  "secondShootAttacksD3",       default: false
+    t.boolean  "secondShootAttacksD6",       default: false
+    t.integer  "thirdShootAttacks",          default: 0
+    t.integer  "fourthShootAttacks",         default: 0
     t.integer  "firstRange"
     t.integer  "secondRange"
     t.integer  "thirdRange"
     t.integer  "fourthRange"
-    t.boolean  "firstShootAttacksDamageD3"
-    t.boolean  "firstShootAttacksDamageD6"
-    t.boolean  "secondShootAttacksDamageD3"
-    t.boolean  "secondShootAttacksDamageD6"
+    t.boolean  "firstShootAttacksDamageD3",  default: false
+    t.boolean  "firstShootAttacksDamageD6",  default: false
+    t.boolean  "secondShootAttacksDamageD3", default: false
+    t.boolean  "secondShootAttacksDamageD6", default: false
     t.integer  "points"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "name"
+    t.integer  "firstShootDamage",           default: 0
+    t.integer  "secondShootDamage",          default: 0
+    t.integer  "thirdShootDamage",           default: 0
+    t.integer  "fourthShootDamage",          default: 0
+    t.text     "abilities",                  default: [],                 array: true
+    t.integer  "firstShootRend",             default: 0
+    t.integer  "secondShootRend",            default: 0
+    t.integer  "thirdShootRend",             default: 0
+    t.integer  "fourthShootRend",            default: 0
+    t.integer  "firstShootStrength",         default: 4
+    t.integer  "secondShootStrength",        default: 4
+    t.integer  "thirdShootStrength",         default: 4
+    t.integer  "fourthShootStrength",        default: 4
   end
 
   create_table "lists", force: :cascade do |t|
@@ -153,42 +194,82 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
   end
 
+  create_table "results", force: :cascade do |t|
+    t.integer  "simulation_id"
+    t.string   "attacker"
+    t.string   "target"
+    t.string   "string"
+    t.integer  "dice"
+    t.text     "description"
+    t.integer  "woundsdealt"
+    t.float    "average"
+    t.integer  "toughness"
+    t.integer  "armor"
+    t.integer  "invul"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["simulation_id"], name: "index_results_on_simulation_id", using: :btree
+  end
+
   create_table "second_weapon_slots", force: :cascade do |t|
     t.integer  "datasheet_id"
     t.integer  "second_weapon_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_second_weapon_slots_on_datasheet_id", using: :btree
     t.index ["second_weapon_id"], name: "index_second_weapon_slots_on_second_weapon_id", using: :btree
+    t.index ["unit_id"], name: "index_second_weapon_slots_on_unit_id", using: :btree
   end
 
   create_table "second_weapons", force: :cascade do |t|
-    t.boolean  "ranged"
-    t.boolean  "melee"
-    t.integer  "primaryAddedMeleeStr"
-    t.integer  "secondaryAddedMeleeStr"
-    t.integer  "primaryMeleeRend"
-    t.integer  "secondaryMeleeRend"
-    t.integer  "firstShootAttacks"
-    t.boolean  "firstShootAttacksD3"
-    t.boolean  "firstShootAttacksD6"
-    t.integer  "secondShootAttacks"
-    t.boolean  "secondShootAttacksD3"
-    t.boolean  "secondShootAttacksD6"
-    t.integer  "thirdShootAttacks"
-    t.integer  "fourthShootAttacks"
+    t.boolean  "ranged",                     default: true
+    t.boolean  "melee",                      default: false
+    t.integer  "primaryAddedMeleeStr",       default: 0
+    t.integer  "secondaryAddedMeleeStr",     default: 0
+    t.integer  "primaryMeleeRend",           default: 0
+    t.integer  "secondaryMeleeRend",         default: 0
+    t.integer  "firstShootAttacks",          default: 0
+    t.boolean  "firstShootAttacksD3",        default: false
+    t.boolean  "firstShootAttacksD6",        default: false
+    t.integer  "secondShootAttacks",         default: 0
+    t.boolean  "secondShootAttacksD3",       default: false
+    t.boolean  "secondShootAttacksD6",       default: false
+    t.integer  "thirdShootAttacks",          default: 0
+    t.integer  "fourthShootAttacks",         default: 0
     t.integer  "firstRange"
     t.integer  "secondRange"
     t.integer  "thirdRange"
     t.integer  "fourthRange"
-    t.boolean  "firstShootAttacksDamageD3"
-    t.boolean  "firstShootAttacksDamageD6"
-    t.boolean  "secondShootAttacksDamageD3"
-    t.boolean  "secondShootAttacksDamageD6"
+    t.boolean  "firstShootAttacksDamageD3",  default: false
+    t.boolean  "firstShootAttacksDamageD6",  default: false
+    t.boolean  "secondShootAttacksDamageD3", default: false
+    t.boolean  "secondShootAttacksDamageD6", default: false
     t.integer  "points"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "name"
+    t.integer  "firstShootDamage",           default: 0
+    t.integer  "secondShootDamage",          default: 0
+    t.integer  "thirdShootDamage",           default: 0
+    t.integer  "fourthShootDamage",          default: 0
+    t.text     "abilities",                  default: [],                 array: true
+    t.integer  "firstShootRend",             default: 0
+    t.integer  "secondShootRend",            default: 0
+    t.integer  "thirdShootRend",             default: 0
+    t.integer  "fourthShootRend",            default: 0
+    t.integer  "firstShootStrength",         default: 4
+    t.integer  "secondShootStrength",        default: 4
+    t.integer  "thirdShootStrength",         default: 4
+    t.integer  "fourthShootStrength",        default: 4
+  end
+
+  create_table "simulations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "resulttext", default: [],              array: true
+    t.index ["user_id"], name: "index_simulations_on_user_id", using: :btree
   end
 
   create_table "third_weapon_slots", force: :cascade do |t|
@@ -196,44 +277,58 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "third_weapon_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_third_weapon_slots_on_datasheet_id", using: :btree
     t.index ["third_weapon_id"], name: "index_third_weapon_slots_on_third_weapon_id", using: :btree
+    t.index ["unit_id"], name: "index_third_weapon_slots_on_unit_id", using: :btree
   end
 
   create_table "third_weapons", force: :cascade do |t|
-    t.boolean  "ranged"
-    t.boolean  "melee"
-    t.integer  "primaryAddedMeleeStr"
-    t.integer  "secondaryAddedMeleeStr"
-    t.integer  "primaryMeleeRend"
-    t.integer  "secondaryMeleeRend"
-    t.integer  "firstShootAttacks"
-    t.boolean  "firstShootAttacksD3"
-    t.boolean  "firstShootAttacksD6"
-    t.integer  "secondShootAttacks"
-    t.boolean  "secondShootAttacksD3"
-    t.boolean  "secondShootAttacksD6"
-    t.integer  "thirdShootAttacks"
-    t.integer  "fourthShootAttacks"
+    t.boolean  "ranged",                     default: true
+    t.boolean  "melee",                      default: false
+    t.integer  "primaryAddedMeleeStr",       default: 0
+    t.integer  "secondaryAddedMeleeStr",     default: 0
+    t.integer  "primaryMeleeRend",           default: 0
+    t.integer  "secondaryMeleeRend",         default: 0
+    t.integer  "firstShootAttacks",          default: 0
+    t.boolean  "firstShootAttacksD3",        default: false
+    t.boolean  "firstShootAttacksD6",        default: false
+    t.integer  "secondShootAttacks",         default: 0
+    t.boolean  "secondShootAttacksD3",       default: false
+    t.boolean  "secondShootAttacksD6",       default: false
+    t.integer  "thirdShootAttacks",          default: 0
+    t.integer  "fourthShootAttacks",         default: 0
     t.integer  "firstRange"
     t.integer  "secondRange"
     t.integer  "thirdRange"
     t.integer  "fourthRange"
-    t.boolean  "firstShootAttacksDamageD3"
-    t.boolean  "firstShootAttacksDamageD6"
-    t.boolean  "secondShootAttacksDamageD3"
-    t.boolean  "secondShootAttacksDamageD6"
+    t.boolean  "firstShootAttacksDamageD3",  default: false
+    t.boolean  "firstShootAttacksDamageD6",  default: false
+    t.boolean  "secondShootAttacksDamageD3", default: false
+    t.boolean  "secondShootAttacksDamageD6", default: false
     t.integer  "points"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "name"
+    t.integer  "firstShootDamage",           default: 0
+    t.integer  "secondShootDamage",          default: 0
+    t.integer  "thirdShootDamage",           default: 0
+    t.integer  "fourthShootDamage",          default: 0
+    t.text     "abilities",                  default: [],                 array: true
+    t.integer  "firstShootRend",             default: 0
+    t.integer  "secondShootRend",            default: 0
+    t.integer  "thirdShootRend",             default: 0
+    t.integer  "fourthShootRend",            default: 0
+    t.integer  "firstShootStrength",         default: 4
+    t.integer  "secondShootStrength",        default: 4
+    t.integer  "thirdShootStrength",         default: 4
+    t.integer  "fourthShootStrength",        default: 4
   end
 
   create_table "units", force: :cascade do |t|
     t.text     "name"
     t.text     "role"
     t.integer  "power"
-    t.integer  "movemovent"
     t.integer  "shooting_skill"
     t.integer  "strength"
     t.integer  "combat_skill"
@@ -249,24 +344,36 @@ ActiveRecord::Schema.define(version: 20170608220506) do
     t.integer  "min_model_count"
     t.integer  "max_model_count"
     t.integer  "detachment_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "movement"
+    t.integer  "equippedFirstWeapon"
+    t.integer  "equippedSecondWeapon"
+    t.integer  "equippedThirdWeapon"
+    t.integer  "equippedFourthWeapon"
+    t.integer  "datasheet_id"
+    t.integer  "toughness",                default: 4
+    t.integer  "fnp",                      default: 7
+    t.text     "faction_keywords",         default: [],              array: true
+    t.text     "keywords",                 default: [],              array: true
+    t.index ["datasheet_id"], name: "index_units_on_datasheet_id", using: :btree
     t.index ["detachment_id"], name: "index_units_on_detachment_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -296,12 +403,19 @@ ActiveRecord::Schema.define(version: 20170608220506) do
   add_foreign_key "detachments", "lists"
   add_foreign_key "first_weapon_slots", "datasheets"
   add_foreign_key "first_weapon_slots", "first_weapons"
+  add_foreign_key "first_weapon_slots", "units"
   add_foreign_key "fourth_weapon_slots", "datasheets"
   add_foreign_key "fourth_weapon_slots", "fourth_weapons"
+  add_foreign_key "fourth_weapon_slots", "units"
   add_foreign_key "lists", "users"
+  add_foreign_key "results", "simulations"
   add_foreign_key "second_weapon_slots", "datasheets"
   add_foreign_key "second_weapon_slots", "second_weapons"
+  add_foreign_key "second_weapon_slots", "units"
+  add_foreign_key "simulations", "users"
   add_foreign_key "third_weapon_slots", "datasheets"
   add_foreign_key "third_weapon_slots", "third_weapons"
+  add_foreign_key "third_weapon_slots", "units"
+  add_foreign_key "units", "datasheets"
   add_foreign_key "units", "detachments"
 end

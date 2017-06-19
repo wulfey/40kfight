@@ -69,6 +69,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:name, :role, :power, :movemovent, :shooting_skill, :strength, :combat_skill, :attacks, :wounds, :leadership, :armor_save, :invul_shooting, :invul_combat, :single_model_point_cost, :model_count_increment, :power_for_each_increment, :min_model_count, :max_model_count, :detachment_id)
+      params.require(:unit).permit(:name, :role, :power, :movement, :shooting_skill, :strength, :combat_skill, :attacks, :wounds, :leadership, :armor_save, :invul_shooting, :invul_combat, :single_model_point_cost, :model_count_increment, :power_for_each_increment, :min_model_count, :max_model_count, :detachment_id)
     end
 end

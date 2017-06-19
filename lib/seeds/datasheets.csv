@@ -1,0 +1,29 @@
+name,role,power,movement,combat_skill,shooting_skill,strength,toughness,wounds,attacks,leadership,armor_save,invul_shooting,invul_combat,single_model_point_cost,model_count_increment,power_for_each_increment,min_model_count,max_model_count,first_slot,second_slot,third_slot,fourth_slot,fnp
+Cawl,HQ,13,6,2,2,5,6,8,4,9,2,5,5,250,0,0,1,1,TRUE,TRUE,TRUE,FALSE,7
+Tech-Priest Dominus,HQ,7,6,3,2,4,4,5,3,8,2,5,5,125,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7
+Tech-Priest Enginseer,Elite,3,6,4,4,4,4,4,2,8,3,6,6,40,0,0,1,1,TRUE,TRUE,TRUE,FALSE,7
+Kataphron Breachers,Troops,9,5,4,4,5,5,3,2,7,3,6,6,35,3,9,3,12,TRUE,TRUE,FALSE,FALSE,7
+Kataphron Destroyers,Troops,10,5,4,4,5,5,3,1,7,4,6,6,35,3,9,3,12,TRUE,TRUE,FALSE,FALSE,7
+Fulgurite Electro-Priests,Elite,4,6,3,4,3,3,1,2,8,6,5,5,16,5,3,5,20,TRUE,FALSE,FALSE,FALSE,5
+Corpuscarii Electro-Priests,Elite,3,6,4,3,3,3,1,2,8,6,5,5,14,5,3,5,20,TRUE,TRUE,FALSE,FALSE,5
+Kastelan Robots,Heavy Support,12,8,4,4,6,7,6,3,8,2,4,4,65,2,12,2,6,TRUE,TRUE,FALSE,FALSE,7
+Cybernetica Datasmith,Elite,3,6,3,3,4,4,4,2,8,2,5,5,22,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7
+Servitors,Elite,4,5,5,5,3,3,1,1,6,4,7,7,2,0,0,4,4,TRUE,FALSE,FALSE,FALSE,7
+Skitarii Rangers,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
+,,,,,,,,,,,,,,,,,,,,,,,7
