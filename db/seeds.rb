@@ -21,8 +21,8 @@ csv.each do |row|
     t.combat_skill = row['combat_skill']
     t.strength = row['strength']
     t.toughness = row['toughness']
-    t.attacks = row['attacks']
     t.wounds = row['wounds']
+    t.attacks = row['attacks']
     t.leadership = row['leadership']
     t.armor_save = row['armor_save']
     t.invul_shooting = row['invul_shooting']
@@ -36,12 +36,65 @@ csv.each do |row|
     t.second_slot = row['second_slot']
     t.third_slot = row['third_slot']
     t.fourth_slot = row['fourth_slot']
-
+    t.fourth_slot = row['fnp']
+    t.fourth_slot = row['leaderAttacks']
+    t.slots = row['slots']
 
     t.save
     puts "#{t.name} saved"
   end
 puts "There are now #{Datasheet.count} rows in the Datasheet table"
+
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'weapons.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+    t = Weapon.new
+
+    t.datasheet_name = row['datasheet_name']
+    t.name = row['name']
+    t.slot = row['slot']
+    t.ranged = row['ranged']
+    t.melee = row['melee']
+    t.primaryAddedMeleeStr = row['primaryAddedMeleeStr']
+    t.secondaryAddedMeleeStr = row['secondaryAddedMeleeStr']
+    t.primaryMeleeRend = row['primaryMeleeRend']
+    t.secondaryMeleeRend = row['secondaryMeleeRend']
+    t.firstShootAttacks = row['firstShootAttacks']
+    t.firstShootAttacksD3 = row['firstShootAttacksD3']
+    t.firstShootAttacksD6 = row['firstShootAttacksD6']
+    t.secondShootAttacks = row['secondShootAttacks']
+    t.secondShootAttacksD3 = row['secondShootAttacksD3']
+    t.secondShootAttacksD6 = row['secondShootAttacksD6']
+    t.thirdShootAttacks = row['thirdShootAttacks']
+    t.fourthShootAttacks = row['fourthShootAttacks']
+    t.firstRange = row['firstRange']
+    t.secondRange = row['secondRange']
+    t.thirdRange = row['thirdRange']
+    t.fourthRange = row['fourthRange']
+    t.firstShootAttacksDamageD3 = row['firstShootAttacksDamageD3']
+    t.firstShootAttacksDamageD6 = row['firstShootAttacksDamageD6']
+    t.secondShootAttacksDamageD3 = row['secondShootAttacksDamageD3']
+    t.secondShootAttacksDamageD6 = row['secondShootAttacksDamageD6']
+    t.points = row['points']
+    t.firstShootDamage = row['firstShootDamage']
+    t.secondShootDamage = row['secondShootDamage']
+    t.thirdShootDamage = row['thirdShootDamage']
+    t.fourthShootDamage = row['fourthShootDamage']
+    t.firstShootRend = row['firstShootRend']
+    t.secondShootRend = row['secondShootRend']
+    t.thirdShootRend = row['thirdShootRend']
+    t.fourthShootRend = row['fourthShootRend']
+    t.firstShootStrength = row['firstShootStrength']
+    t.secondShootStrength = row['secondShootStrength']
+    t.thirdShootStrength = row['thirdShootStrength']
+    t.fourthShootStrength = row['fourthShootStrength']
+    t.abilities = row['abilities']
+
+    t.save
+    puts "#{t.name} saved"
+  end
+puts "There are now #{Weapon.count} rows in the weapon table"
 
 
 #

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :weapons
   resources :simulations
     root 'pages#index'
 

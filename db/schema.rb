@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617003337) do
+ActiveRecord::Schema.define(version: 20170625205702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170617003337) do
     t.integer  "fnp",                      default: 7
     t.text     "faction_keywords",         default: [],                 array: true
     t.text     "keywords",                 default: [],                 array: true
+    t.integer  "leaderAttacks"
+    t.integer  "slots",                    default: 2
   end
 
   create_table "detachments", force: :cascade do |t|
@@ -400,6 +402,52 @@ ActiveRecord::Schema.define(version: 20170617003337) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.string   "datasheet_name"
+    t.string   "name"
+    t.integer  "slot",                       default: 1
+    t.boolean  "ranged",                     default: true
+    t.boolean  "melee",                      default: false
+    t.integer  "primaryAddedMeleeStr",       default: 0
+    t.integer  "secondaryAddedMeleeStr",     default: 0
+    t.integer  "primaryMeleeRend",           default: 0
+    t.integer  "secondaryMeleeRend",         default: 0
+    t.integer  "firstShootAttacks",          default: 1
+    t.boolean  "firstShootAttacksD3",        default: false
+    t.boolean  "firstShootAttacksD6",        default: false
+    t.integer  "secondShootAttacks",         default: 0
+    t.boolean  "secondShootAttacksD3",       default: false
+    t.boolean  "secondShootAttacksD6",       default: false
+    t.integer  "thirdShootAttacks",          default: 0
+    t.integer  "fourthShootAttacks",         default: 0
+    t.integer  "firstRange"
+    t.integer  "secondRange"
+    t.integer  "thirdRange"
+    t.integer  "fourthRange"
+    t.boolean  "firstShootAttacksDamageD3",  default: false
+    t.boolean  "firstShootAttacksDamageD6",  default: false
+    t.boolean  "secondShootAttacksDamageD3", default: false
+    t.boolean  "secondShootAttacksDamageD6", default: false
+    t.integer  "points"
+    t.integer  "firstShootDamage",           default: 1
+    t.integer  "secondShootDamage",          default: 0
+    t.integer  "thirdShootDamage",           default: 0
+    t.integer  "fourthShootDamage",          default: 0
+    t.integer  "firstShootRend"
+    t.integer  "secondShootRend"
+    t.integer  "thirdShootRend"
+    t.integer  "fourthShootRend"
+    t.integer  "firstShootStrength"
+    t.integer  "secondShootStrength"
+    t.integer  "thirdShootStrength"
+    t.integer  "fourthShootStrength"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.text     "abilities",                  default: [],                 array: true
+    t.integer  "datasheet_id"
+    t.index ["datasheet_id"], name: "index_weapons_on_datasheet_id", using: :btree
+  end
+
   add_foreign_key "detachments", "lists"
   add_foreign_key "first_weapon_slots", "datasheets"
   add_foreign_key "first_weapon_slots", "first_weapons"
@@ -418,4 +466,5 @@ ActiveRecord::Schema.define(version: 20170617003337) do
   add_foreign_key "third_weapon_slots", "units"
   add_foreign_key "units", "datasheets"
   add_foreign_key "units", "detachments"
+  add_foreign_key "weapons", "datasheets"
 end

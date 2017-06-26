@@ -12,5 +12,6 @@ class Datasheet < ApplicationRecord
     has_many :fourth_weapon_slots, dependent: :destroy
 
     has_many :units, dependent: :destroy
+    has_many :weapons
 
 end

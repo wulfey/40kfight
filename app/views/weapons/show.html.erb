@@ -1,0 +1,128 @@
+<div class="page-header">
+  <%= link_to weapons_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_weapon_path(@weapon), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show weapon</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Datasheet name:</dt>
+  <dd><%= @weapon.datasheet_name %></dd>
+
+  <dt>Name:</dt>
+  <dd><%= @weapon.name %></dd>
+
+  <dt>Slot:</dt>
+  <dd><%= @weapon.slot %></dd>
+
+  <dt>Ranged:</dt>
+  <dd><%= @weapon.ranged %></dd>
+
+  <dt>Melee:</dt>
+  <dd><%= @weapon.melee %></dd>
+
+  <dt>Primaryaddedmeleestr:</dt>
+  <dd><%= @weapon.primaryAddedMeleeStr %></dd>
+
+  <dt>Secondaryaddedmeleestr:</dt>
+  <dd><%= @weapon.secondaryAddedMeleeStr %></dd>
+
+  <dt>Primarymeleerend:</dt>
+  <dd><%= @weapon.primaryMeleeRend %></dd>
+
+  <dt>Secondarymeleerend:</dt>
+  <dd><%= @weapon.secondaryMeleeRend %></dd>
+
+  <dt>Firstshootattacks:</dt>
+  <dd><%= @weapon.firstShootAttacks %></dd>
+
+  <dt>Firstshootattacksd3:</dt>
+  <dd><%= @weapon.firstShootAttacksD3 %></dd>
+
+  <dt>Firstshootattacksd6:</dt>
+  <dd><%= @weapon.firstShootAttacksD6 %></dd>
+
+  <dt>Secondshootattacks:</dt>
+  <dd><%= @weapon.secondShootAttacks %></dd>
+
+  <dt>Secondshootattacksd3:</dt>
+  <dd><%= @weapon.secondShootAttacksD3 %></dd>
+
+  <dt>Secondshootattacksd6:</dt>
+  <dd><%= @weapon.secondShootAttacksD6 %></dd>
+
+  <dt>Thirdshootattacks:</dt>
+  <dd><%= @weapon.thirdShootAttacks %></dd>
+
+  <dt>Fourthshootattacks:</dt>
+  <dd><%= @weapon.fourthShootAttacks %></dd>
+
+  <dt>Firstrange:</dt>
+  <dd><%= @weapon.firstRange %></dd>
+
+  <dt>Secondrange:</dt>
+  <dd><%= @weapon.secondRange %></dd>
+
+  <dt>Thirdrange:</dt>
+  <dd><%= @weapon.thirdRange %></dd>
+
+  <dt>Fourthrange:</dt>
+  <dd><%= @weapon.fourthRange %></dd>
+
+  <dt>Firstshootattacksdamaged3:</dt>
+  <dd><%= @weapon.firstShootAttacksDamageD3 %></dd>
+
+  <dt>Firstshootattacksdamaged6:</dt>
+  <dd><%= @weapon.firstShootAttacksDamageD6 %></dd>
+
+  <dt>Secondshootattacksdamaged3:</dt>
+  <dd><%= @weapon.secondShootAttacksDamageD3 %></dd>
+
+  <dt>Secondshootattacksdamaged6:</dt>
+  <dd><%= @weapon.secondShootAttacksDamageD6 %></dd>
+
+  <dt>Points:</dt>
+  <dd><%= @weapon.points %></dd>
+
+  <dt>Firstshootdamage:</dt>
+  <dd><%= @weapon.firstShootDamage %></dd>
+
+  <dt>Secondshootdamage:</dt>
+  <dd><%= @weapon.secondShootDamage %></dd>
+
+  <dt>Thirdshootdamage:</dt>
+  <dd><%= @weapon.thirdShootDamage %></dd>
+
+  <dt>Fourthshootdamage:</dt>
+  <dd><%= @weapon.fourthShootDamage %></dd>
+
+  <dt>Firstshootrend:</dt>
+  <dd><%= @weapon.firstShootRend %></dd>
+
+  <dt>Secondshootrend:</dt>
+  <dd><%= @weapon.secondShootRend %></dd>
+
+  <dt>Thirdshootrend:</dt>
+  <dd><%= @weapon.thirdShootRend %></dd>
+
+  <dt>Fourthshootrend:</dt>
+  <dd><%= @weapon.fourthShootRend %></dd>
+
+  <dt>Firstshootstrength:</dt>
+  <dd><%= @weapon.firstShootStrength %></dd>
+
+  <dt>Secondshootstrength:</dt>
+  <dd><%= @weapon.secondShootStrength %></dd>
+
+  <dt>Thirdshootstrength:</dt>
+  <dd><%= @weapon.thirdShootStrength %></dd>
+
+  <dt>Fourthshootstrength:</dt>
+  <dd><%= @weapon.fourthShootStrength %></dd>
+
+</dl>

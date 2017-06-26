@@ -1,0 +1,248 @@
+<%= form_for(@weapon, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @weapon.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@weapon.errors.count, "error") %> prohibited this weapon from being saved:</h4>
+
+      <ul>
+      <% @weapon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :datasheet_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :datasheet_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :slot, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :slot, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ranged, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :ranged, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :melee, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :melee, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :primaryAddedMeleeStr, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :primaryAddedMeleeStr, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondaryAddedMeleeStr, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondaryAddedMeleeStr, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :primaryMeleeRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :primaryMeleeRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondaryMeleeRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondaryMeleeRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootAttacks, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :firstShootAttacks, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootAttacksD3, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :firstShootAttacksD3, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootAttacksD6, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :firstShootAttacksD6, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootAttacks, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondShootAttacks, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootAttacksD3, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :secondShootAttacksD3, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootAttacksD6, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :secondShootAttacksD6, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :thirdShootAttacks, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :thirdShootAttacks, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fourthShootAttacks, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :fourthShootAttacks, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstRange, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :firstRange, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondRange, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondRange, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :thirdRange, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :thirdRange, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fourthRange, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :fourthRange, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootAttacksDamageD3, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :firstShootAttacksDamageD3, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootAttacksDamageD6, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :firstShootAttacksDamageD6, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootAttacksDamageD3, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :secondShootAttacksDamageD3, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootAttacksDamageD6, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :secondShootAttacksDamageD6, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :points, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :points, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootDamage, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :firstShootDamage, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootDamage, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondShootDamage, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :thirdShootDamage, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :thirdShootDamage, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fourthShootDamage, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :fourthShootDamage, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :firstShootRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondShootRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :thirdShootRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :thirdShootRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fourthShootRend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :fourthShootRend, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :firstShootStrength, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :firstShootStrength, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondShootStrength, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :secondShootStrength, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :thirdShootStrength, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :thirdShootStrength, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fourthShootStrength, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :fourthShootStrength, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

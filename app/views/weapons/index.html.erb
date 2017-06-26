@@ -1,0 +1,103 @@
+<div class="page-header">
+  <%= link_to new_weapon_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Weapon
+  <% end %>
+  <h1>Listing weapons</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Datasheet name</th>
+            <th>Name</th>
+            <th>Slot</th>
+            <th>Ranged</th>
+            <th>Melee</th>
+            <th>Primaryaddedmeleestr</th>
+            <th>Secondaryaddedmeleestr</th>
+            <th>Primarymeleerend</th>
+            <th>Secondarymeleerend</th>
+            <th>Firstshootattacks</th>
+            <th>Firstshootattacksd3</th>
+            <th>Firstshootattacksd6</th>
+            <th>Secondshootattacks</th>
+            <th>Secondshootattacksd3</th>
+            <th>Secondshootattacksd6</th>
+            <th>Thirdshootattacks</th>
+            <th>Fourthshootattacks</th>
+            <th>Firstrange</th>
+            <th>Secondrange</th>
+            <th>Thirdrange</th>
+            <th>Fourthrange</th>
+            <th>Firstshootattacksdamaged3</th>
+            <th>Firstshootattacksdamaged6</th>
+            <th>Secondshootattacksdamaged3</th>
+            <th>Secondshootattacksdamaged6</th>
+            <th>Points</th>
+            <th>Firstshootdamage</th>
+            <th>Secondshootdamage</th>
+            <th>Thirdshootdamage</th>
+            <th>Fourthshootdamage</th>
+            <th>Firstshootrend</th>
+            <th>Secondshootrend</th>
+            <th>Thirdshootrend</th>
+            <th>Fourthshootrend</th>
+            <th>Firstshootstrength</th>
+            <th>Secondshootstrength</th>
+            <th>Thirdshootstrength</th>
+            <th>Fourthshootstrength</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @weapons) do |weapon| %>
+            <td><%= weapon.datasheet_name %></td>
+            <td><%= weapon.name %></td>
+            <td><%= weapon.slot %></td>
+            <td><%= weapon.ranged %></td>
+            <td><%= weapon.melee %></td>
+            <td><%= weapon.primaryAddedMeleeStr %></td>
+            <td><%= weapon.secondaryAddedMeleeStr %></td>
+            <td><%= weapon.primaryMeleeRend %></td>
+            <td><%= weapon.secondaryMeleeRend %></td>
+            <td><%= weapon.firstShootAttacks %></td>
+            <td><%= weapon.firstShootAttacksD3 %></td>
+            <td><%= weapon.firstShootAttacksD6 %></td>
+            <td><%= weapon.secondShootAttacks %></td>
+            <td><%= weapon.secondShootAttacksD3 %></td>
+            <td><%= weapon.secondShootAttacksD6 %></td>
+            <td><%= weapon.thirdShootAttacks %></td>
+            <td><%= weapon.fourthShootAttacks %></td>
+            <td><%= weapon.firstRange %></td>
+            <td><%= weapon.secondRange %></td>
+            <td><%= weapon.thirdRange %></td>
+            <td><%= weapon.fourthRange %></td>
+            <td><%= weapon.firstShootAttacksDamageD3 %></td>
+            <td><%= weapon.firstShootAttacksDamageD6 %></td>
+            <td><%= weapon.secondShootAttacksDamageD3 %></td>
+            <td><%= weapon.secondShootAttacksDamageD6 %></td>
+            <td><%= weapon.points %></td>
+            <td><%= weapon.firstShootDamage %></td>
+            <td><%= weapon.secondShootDamage %></td>
+            <td><%= weapon.thirdShootDamage %></td>
+            <td><%= weapon.fourthShootDamage %></td>
+            <td><%= weapon.firstShootRend %></td>
+            <td><%= weapon.secondShootRend %></td>
+            <td><%= weapon.thirdShootRend %></td>
+            <td><%= weapon.fourthShootRend %></td>
+            <td><%= weapon.firstShootStrength %></td>
+            <td><%= weapon.secondShootStrength %></td>
+            <td><%= weapon.thirdShootStrength %></td>
+            <td><%= weapon.fourthShootStrength %></td>
+            <td><%= link_to 'Show', weapon %></td>
+        <td><%= link_to 'Edit', edit_weapon_path(weapon) %></td>
+        <td><%= link_to 'Destroy', weapon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
