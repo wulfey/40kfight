@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   resources :simulations
     root 'pages#index'
 
-    resources :fourth_weapons
-    resources :third_weapons
-    resources :second_weapons
-    resources :first_weapons
-    resources :datasheets
+            resources :datasheets
     resources :units
     resources :valid_detachments
     resources :detachments

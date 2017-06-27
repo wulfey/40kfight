@@ -19,9 +19,16 @@ class CreateUnits < ActiveRecord::Migration[5.0]
       t.integer :power_for_each_increment
       t.integer :min_model_count
       t.integer :max_model_count
+
+      t.integer :slots
+
       t.references :detachment, foreign_key: true
+
+
 
       t.timestamps
     end
+
+    
   end
 end

@@ -18,7 +18,15 @@ class CreateDetachments < ActiveRecord::Migration[5.0]
       t.integer :max_hq
       t.integer :max_lord
       t.integer :max_flyer
+      t.integer :cur_troops
+      t.integer :cur_elites
+      t.integer :cur_fast
+      t.integer :cur_heavy
+      t.integer :cur_hq
+      t.integer :cur_lord
+      t.integer :cur_flyer
       t.references :list, foreign_key: true
+
 
       t.timestamps
     end

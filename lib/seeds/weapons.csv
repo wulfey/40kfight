@@ -1,150 +1,162 @@
-datasheet_name,name,slot,ranged,melee,primaryAddedMeleeStr,secondaryAddedMeleeStr,primaryMeleeRend,secondaryMeleeRend,firstShootAttacks,firstShootAttacksD3,firstShootAttacksD6,secondShootAttacks,secondShootAttacksD3,secondShootAttacksD6,thirdShootAttacks,fourthShootAttacks,firstRange,secondRange,thirdRange,fourthRange,firstShootAttacksDamageD3,firstShootAttacksDamageD6,secondShootAttacksDamageD3,secondShootAttacksDamageD6,points,firstShootDamage,secondShootDamage,thirdShootDamage,fourthShootDamage,firstShootRend,secondShootRend,thirdShootRend,fourthShootRend,firstShootStrength,secondShootStrength,thirdShootStrength,fourthShootStrength,abilities
-Cawl,Solar atomizer,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"[""melta"", ""atomizer""]"
-Cawl,Arc scourge,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cawl,Omnissian axe,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cawl,Mechadendrite hive,3,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Dominus,Eradication ray,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Dominus,Volkite blaster,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Dominus,Macrostubber,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Dominus,Phosphor serpenta,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Dominus,Omnissian axe,3,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Enginseer,Laspitol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Enginseer,Omnissian axe,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tech-Priest Enginseer,Servo-arm,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Breachers,Heavy arc rifle,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Breachers,Torsion cannon,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Breachers,Arc claw,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Breachers,Hydraulic,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Destroyers,Heavy grav-cannon,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Destroyers,Plasma culverin Standard,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Destroyers,Plasma culverin Supercharge,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Destroyers,Cognis flamer,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kataphron Destroyers,Phosphor blaster,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fulgurite Electro-Priests,Electroleech stave,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Corpuscarii Electro-Priests,Electrostatic gauntlets (shooting),1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Corpuscarii Electro-Priests,Electrostatic gauntlets (melee),2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kastelan Robots,Heavy phosphor blaster,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kastelan Robots,Kastelan fists,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kastelan Robots,Heavy phosphor blaster,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kastelan Robots,Incendine combustor,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cybernetica Datasmith,Gamma pistol,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cybernetica Datasmith,Power fist,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Heavy bolter,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Multi-melta,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Plasma cannon Standard,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Plasma cannon Supercharge,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Servo-arm,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Heavy bolter,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Multi-melta,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Plasma cannon Standard,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Plasma cannon Supercharge,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Servo-arm,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Servo-arm,3,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Servitors,Servo-arm,4,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Arc pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Phosphor blast pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Radium pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,7,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Galvanic rifle,5,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Arc maul,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Power sword,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Taser goad,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Rangers,Close combat weapon,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Arc pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Phosphor blast pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,7,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Radium carbine,5,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Arc maul,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Power sword,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Taser goad,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-5 Skitarii Vanguard,Close combat weapon,6,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Arc pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Phosphor blast pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Radium pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Arc rifle,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Plasma caliver,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Transuranic arquebus,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Arc rifle,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Plasma caliver,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Transuranic arquebus,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,5,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,6,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,7,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,8,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,9,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Galvanic rifle,10,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Arc maul,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Power sword,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Taser goad,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Rangers,Close combat weapon,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Phosphor blast pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc rifle,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Plasma caliver,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Transuranic arquebus,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,3,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc rifle,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Plasma caliver,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Transuranic arquebus,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,4,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,5,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,6,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,7,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,8,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,9,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Radium carbine,10,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc maul,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Power sword,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Taser goad,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Close combat weapon,11,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10 Skitarii Vanguard,Arc pistol,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Infiltrators,Flechette blaster,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Infiltrators,Stubcarbine,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Infiltrators,Power sword,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Infiltrators,Taser goad,2,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Rustalkers,Transonic razor and chordclaw,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sicarian Rustalkers,Transonic blades,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ironstrider Ballistarii,Twin cognis autocannon,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ironstrider Ballistarii,Twin cognis lascannon,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sydonian Dragoons,Taser lance,1,FALSE,TRUE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sydonian Dragoons,Radium jezzail,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sydonian Dragoons,Phosphor serpenta,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Onager Dunecrawler,Eradication beamer,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Onager Dunecrawler,Icarus array,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Onager Dunecrawler,Neutron laser,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Onager Dunecrawler,Twin heavy phosphor blaster,1,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Onager Dunecrawler,Cognis heavy stubber,2,TRUE,FALSE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+datasheet_name,name,slot,ranged,melee,weapon_type,firstRange,firstShootAttacks,firstShootStrength,firstShootRend,firstShootDamage,firstShootAttacksD3,firstShootAttacksD6,firstShootAttacksDamageD3,firstShootAttacksDamageD6,points,abilities,abilities_second,,allequipped,secondRange,secondShootAttacks,secondShootStrength,secondShootRend,secondShootDamage,secondShootAttacksD3,secondShootAttacksD6,secondShootAttacksDamageD3,secondShootAttacksDamageD6,,thirdRange,thirdShootAttacks,thirdShootStrength,thirdShootRend,thirdShootDamage,,fourthRange,fourthShootAttacks,fourthShootStrength,fourthShootRend,fourthShootDamage
+Cawl,Solar atomizer,1,TRUE,FALSE,assault,12,1,10,4,1,1,0,1,0,0,halfRangeD6,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Cawl,Arc scourge,2,FALSE,TRUE,melee,0,4,10,0,1,0,0,0,0,0,unwieldy/vehicleD3,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Cawl,Omnissian axe,2,FALSE,TRUE,melee,0,4,6,2,2,0,0,0,0,0,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Cawl,Mechadendrite hive,3,FALSE,TRUE,melee,0,2,0,0,0,0,1,0,0,0,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Eradication ray,1,TRUE,FALSE,heavy,24,1,6,2,1,1,0,0,0,14,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Eradication ray short range,1,TRUE,FALSE,heavy,24,1,8,4,1,1,0,1,0,14,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Volkite blaster,1,TRUE,FALSE,heavy,24,3,6,0,1,0,0,0,0,8,additionalMortalOn6+,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Macrostubber,2,TRUE,FALSE,pistol,12,5,4,0,1,0,0,0,0,2,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Phosphor serpenta,2,TRUE,FALSE,assault,18,1,5,1,1,0,0,0,0,6,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Dominus,Omnissian axe,3,FALSE,TRUE,melee,0,3,5,2,2,0,0,0,0,0,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Enginseer,Laspitol,1,TRUE,FALSE,pistol,12,1,3,0,1,0,0,0,0,0,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Enginseer,Omnissian axe,2,FALSE,TRUE,melee,0,2,4,2,2,0,0,0,0,0,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Tech-Priest Enginseer,Servo-arm,2,FALSE,TRUE,melee,0,1,6,2,3,0,0,0,0,12,servo,,,TRUE,0,0,4,2,2,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Breachers,Heavy arc rifle,1,TRUE,FALSE,assault,36,2,6,2,1,0,0,1,0,18,vehicleD6,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Breachers,Torsion cannon,1,TRUE,FALSE,assault,24,1,8,4,1,0,0,0,1,22,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Breachers,Arc claw,2,FALSE,TRUE,melee,0,2,6,1,1,0,0,0,0,4,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Breachers,Hydraulic,2,FALSE,TRUE,melee,0,2,10,1,1,0,0,1,0,8,vehicleD3,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Destroyers,Heavy grav-cannon,1,TRUE,FALSE,assault,30,5,5,3,1,0,0,0,0,30,graviton,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Destroyers,Plasma culverin Standard,1,TRUE,FALSE,assault,36,1,7,3,1,0,1,0,0,27,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Destroyers,Plasma culverin Supercharge,1,TRUE,FALSE,assault,36,1,8,3,2,0,1,0,0,27,supercharge,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Destroyers,Cognis flamer,2,TRUE,FALSE,assault,8,1,4,0,1,0,0,0,0,11,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kataphron Destroyers,Phosphor blaster,2,TRUE,FALSE,rapid,24,1,5,1,1,0,0,0,0,8,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Fulgurite Electro-Priests,Electroleech stave,1,FALSE,TRUE,melee,0,2,5,2,1,0,0,1,0,0,mortalOn6+,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Corpuscarii Electro-Priests,Electrostatic gauntlets (shooting),1,TRUE,FALSE,assault,12,3,5,0,1,0,0,0,0,0,tesla,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Corpuscarii Electro-Priests,Electrostatic gauntlets (melee),2,FALSE,TRUE,melee,0,2,5,0,1,0,0,0,0,0,tesla,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kastelan Robots,Heavy phosphor blaster,1,TRUE,FALSE,heavy,36,6,6,2,1,0,0,0,0,30,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kastelan Robots,Kastelan fists,1,FALSE,TRUE,melee,0,3,10,3,3,0,0,0,0,35,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kastelan Robots,Heavy phosphor blaster carapace,2,TRUE,FALSE,heavy,36,3,6,2,1,0,0,0,0,15,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Kastelan Robots,Incendine combustor,2,TRUE,FALSE,heavy,12,0,0,0,1,0,0,0,0,0,flamer,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Cybernetica Datasmith,Gamma pistol,1,FALSE,TRUE,pistol,12,1,6,3,2,0,0,0,0,10,rerollVehicle,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Cybernetica Datasmith,Power fist,2,TRUE,FALSE,melee,0,2,8,3,1,0,0,1,0,20,unwieldy,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Heavy bolter,1,TRUE,FALSE,heavy,36,3,5,0,1,0,0,0,0,10,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Multi-melta,1,TRUE,FALSE,heavy,24,1,8,0,1,0,0,0,1,27,melta,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Plasma cannon Standard,1,TRUE,FALSE,heavy,36,1,7,0,1,1,0,0,0,21,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Plasma cannon Supercharge,1,TRUE,FALSE,heavy,36,1,8,0,2,1,0,0,0,21,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Servo-arm,1,FALSE,TRUE,melee,0,1,6,0,1,0,0,0,0,12,servo,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Heavy bolter,2,TRUE,FALSE,heavy,36,3,5,0,1,0,0,0,0,10,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Multi-melta,2,TRUE,FALSE,heavy,24,1,8,0,1,0,0,0,1,27,melta,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Plasma cannon Standard,2,TRUE,FALSE,heavy,36,1,7,0,1,1,0,0,0,21,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Plasma cannon Supercharge,2,TRUE,FALSE,heavy,36,1,8,0,2,1,0,0,0,21,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Servo-arm,2,FALSE,TRUE,melee,0,1,6,0,1,0,0,0,0,12,servo,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Servo-arm,3,FALSE,TRUE,melee,0,1,6,0,1,0,0,0,0,12,servo,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Servitors,Servo-arm,4,FALSE,TRUE,melee,0,1,6,0,1,0,0,0,0,12,servo,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Arc pistol,1,TRUE,FALSE,pistol,12,1,6,1,1,0,0,0,0,3,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Phosphor blast pistol,1,TRUE,FALSE,pistol,12,1,5,1,1,0,0,0,0,4,ignoreCover,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Radium pistol,1,TRUE,FALSE,pistol,12,1,3,0,1,0,0,0,0,1,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,1,TRUE,FALSE,rapid,30,1,3,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,2,1,0,0,1,0,25,sniper,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,3,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,4,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Galvanic rifle,5,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Arc maul,6,FALSE,TRUE,melee,0,2,5,1,1,0,0,0,0,5,vehicleD3,,,FALSE,0,4,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Power sword,6,FALSE,TRUE,melee,0,2,3,3,1,0,0,0,0,4,,,,FALSE,0,4,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Taser goad,6,FALSE,TRUE,melee,0,2,5,0,1,0,0,0,0,6,tesla,,,FALSE,0,4,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Rangers,Close combat weapon,6,FALSE,TRUE,melee,0,6,3,0,1,0,0,0,0,0,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Arc pistol,1,TRUE,FALSE,pistol,12,1,6,1,1,0,0,0,0,3,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Phosphor blast pistol,1,TRUE,FALSE,pistol,12,1,5,1,1,0,0,0,0,4,ignoreCover,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium pistol,1,TRUE,FALSE,pistol,12,1,3,0,1,0,0,0,0,1,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Arc maul,6,FALSE,TRUE,melee,0,2,6,1,1,0,0,0,0,5,vehicleD3,,,FALSE,0,4,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Power sword,6,FALSE,TRUE,melee,0,2,4,3,1,0,0,0,0,4,,,,FALSE,0,4,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Taser goad,6,FALSE,TRUE,melee,0,2,6,0,1,0,0,0,0,6,tesla,,,FALSE,0,4,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+5 Skitarii Vanguard,Close combat weapon,6,FALSE,TRUE,melee,0,6,4,0,1,0,0,0,0,0,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Arc pistol,1,TRUE,FALSE,pistol,12,1,6,1,1,0,0,0,0,3,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Phosphor blast pistol,1,TRUE,FALSE,pistol,12,1,5,1,1,0,0,0,0,4,ignoreCover,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Radium pistol,1,TRUE,FALSE,pistol,12,1,3,0,1,0,0,0,0,1,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Galvanic rifle,2,TRUE,FALSE,rapid,30,1,4,0,1,0,0,0,0,0,galvanic,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Arc maul,6,FALSE,TRUE,melee,0,2,5,1,1,0,0,0,0,5,vehicleD3,,,FALSE,0,9,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Power sword,6,FALSE,TRUE,melee,0,2,3,3,1,0,0,0,0,4,,,,FALSE,0,9,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Taser goad,6,FALSE,TRUE,melee,0,2,5,0,1,0,0,0,0,6,tesla,,,FALSE,0,9,3,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Rangers,Close combat weapon,6,FALSE,TRUE,melee,0,11,3,0,1,0,0,0,0,0,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Arc pistol,1,TRUE,FALSE,pistol,12,1,6,1,1,0,0,0,0,3,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Phosphor blast pistol,1,TRUE,FALSE,pistol,12,1,5,1,1,0,0,0,0,4,ignoreCover,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium pistol,1,TRUE,FALSE,pistol,12,1,3,0,1,0,0,0,0,1,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Arc rifle,2,TRUE,FALSE,rapid,24,1,6,1,1,0,0,0,0,4,vehicleD3,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver,2,TRUE,FALSE,assault,18,2,7,3,1,0,0,0,0,14,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Plasma caliver supercharge,2,TRUE,FALSE,assault,18,2,8,3,2,0,0,0,0,14,supercharge,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Transuranic arquebus,2,TRUE,FALSE,heavy,72,1,7,0,1,0,0,1,0,25,additionalMortalOn6+,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Radium carbine,1,TRUE,FALSE,assault,18,3,3,0,1,0,0,0,0,0,radium,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Arc maul,6,FALSE,TRUE,melee,0,2,6,1,1,0,0,0,0,5,vehicleD3,,,FALSE,0,9,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Power sword,6,FALSE,TRUE,melee,0,2,4,3,1,0,0,0,0,4,,,,FALSE,0,9,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Taser goad,6,FALSE,TRUE,melee,0,2,6,0,1,0,0,0,0,6,tesla,,,FALSE,0,9,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+10 Skitarii Vanguard,Close combat weapon,6,FALSE,TRUE,melee,0,6,4,0,1,0,0,0,0,0,,,,FALSE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Infiltrators,Flechette blaster,1,TRUE,FALSE,pistol,12,5,3,0,1,0,0,0,0,2,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Infiltrators,Stubcarbine,1,TRUE,FALSE,pistol,18,3,4,3,1,0,0,0,0,2,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Infiltrators,Power sword,2,FALSE,TRUE,melee,0,16,4,0,1,0,0,0,0,4,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Infiltrators,Taser goad,2,FALSE,TRUE,melee,0,16,6,0,1,0,0,0,0,6,tesla,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Rustalkers,Transonic razor and chordclaw,1,FALSE,TRUE,melee,0,5,4,0,1,0,0,1,0,5,mortalOn6+,mortalOn6+,,TRUE,0,11,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sicarian Rustalkers,Transonic blades,1,FALSE,TRUE,melee,0,16,5,0,1,0,0,0,0,7,mortalOn6+,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Ironstrider Ballistarii,Twin cognis autocannon,1,TRUE,FALSE,heavy,48,4,7,1,2,0,0,0,0,25,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Ironstrider Ballistarii,Twin cognis lascannon,1,TRUE,FALSE,heavy,72,2,9,3,1,0,0,0,1,45,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sydonian Dragoons,Taser lance,1,FALSE,TRUE,melee,0,3,8,0,2,0,0,0,0,9,tesla,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sydonian Dragoons,Radium jezzail,1,TRUE,FALSE,heavy,30,2,5,0,1,0,0,0,0,4,additionalMortalOn6+,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Sydonian Dragoons,Phosphor serpenta,2,TRUE,FALSE,assault,18,1,5,1,1,0,0,0,0,6,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Onager Dunecrawler,Eradication beamer,1,TRUE,FALSE,heavy,36,1,8,2,1,0,1,1,0,30,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Onager Dunecrawler,Eradication beamer close,1,TRUE,FALSE,heavy,12,1,8,4,1,1,0,0,1,30,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Onager Dunecrawler,Icarus array,1,TRUE,FALSE,heavy,48,1,7,3,1,0,0,0,1,40,,,,TRUE,48,5,6,2,1,0,0,0,0,,48,4,7,1,2,,0,0,0,0,0
+Onager Dunecrawler,Neutron laser,1,TRUE,FALSE,heavy,48,1,10,0,1,0,0,0,0,45,neutron,,,TRUE,36,3,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Onager Dunecrawler,Twin heavy phosphor blaster,1,TRUE,FALSE,heavy,36,6,6,2,1,0,0,0,0,30,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+Onager Dunecrawler,Cognis heavy stubber,2,TRUE,FALSE,heavy,36,3,4,0,1,0,0,0,0,8,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
+,,,,,,,,,,,,,,,,,,,TRUE,,,,,,,,,,,,,,,,,,,,,

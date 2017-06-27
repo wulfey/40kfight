@@ -1,20 +1,20 @@
-name,role,power,movement,combat_skill,shooting_skill,strength,toughness,wounds,attacks,leadership,armor_save,invul_shooting,invul_combat,single_model_point_cost,model_count_increment,power_for_each_increment,min_model_count,max_model_count,first_slot,second_slot,third_slot,fourth_slot,fnp,leaderAttacks,slots,
-Cawl,HQ,13,6,2,2,5,6,8,4,9,2,5,5,250,0,0,1,1,TRUE,TRUE,TRUE,FALSE,7,0,3,Cawl
-Tech-Priest Dominus,HQ,7,6,3,2,4,4,5,3,8,2,5,5,125,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7,0,3,Tech-Priest Dominus
-Tech-Priest Enginseer,Elite,3,6,4,4,4,4,4,2,8,3,6,6,40,0,0,1,1,TRUE,TRUE,TRUE,FALSE,7,0,2,Tech-Priest Enginseer
-Kataphron Breachers,Troops,9,5,4,4,5,5,3,2,7,3,6,6,35,3,9,3,12,TRUE,TRUE,FALSE,FALSE,7,0,2,Kataphron Breachers
-Kataphron Destroyers,Troops,10,5,4,4,5,5,3,1,7,4,6,6,35,3,9,3,12,TRUE,TRUE,FALSE,FALSE,7,0,2,Kataphron Destroyers
-Fulgurite Electro-Priests,Elite,4,6,3,4,3,3,1,2,8,6,5,5,16,5,3,5,20,TRUE,FALSE,FALSE,FALSE,5,0,1,Fulgurite Electro-Priests
-Corpuscarii Electro-Priests,Elite,3,6,4,3,3,3,1,2,8,6,5,5,14,5,3,5,20,TRUE,TRUE,FALSE,FALSE,5,0,2,Corpuscarii Electro-Priests
-Kastelan Robots,Heavy Support,12,8,4,4,6,7,6,3,8,2,4,4,65,2,12,2,6,TRUE,TRUE,FALSE,FALSE,7,0,2,Kastelan Robots
-Cybernetica Datasmith,Elite,3,6,3,3,4,4,4,2,8,2,5,5,22,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7,0,2,Cybernetica Datasmith
-Servitors,Elite,4,5,5,5,3,3,1,1,6,4,7,7,2,0,0,4,4,TRUE,TRUE,TRUE,FALSE,7,0,4,Servitors
-5 Skitarii Rangers,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,5,10,TRUE,TRUE,FALSE,FALSE,7,1,5,Skitarii Rangers
-5 Skitarii Vanguard,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,5,10,TRUE,TRUE,FALSE,FALSE,7,1,5,Skitarii Vanguard
-10 Skitarii Rangers,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,10,10,TRUE,TRUE,FALSE,FALSE,7,1,10,Skitarii Rangers
-10 Skitarii Vanguard,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,10,10,TRUE,TRUE,FALSE,FALSE,7,1,10,Skitarii Vanguard
-Sicarian Infiltrators,Elite,6,8,3,3,4,3,2,3,7,4,6,6,,5,6,5,10,TRUE,TRUE,FALSE,FALSE,7,1,2,Sicarian Infiltrators
-Sicarian Rustalkers,Elite,5,8,3,3,4,3,2,3,7,4,6,6,,5,5,5,10,TRUE,FALSE,FALSE,FALSE,7,1,2,Sicarian Rustalkers
-Ironstrider Ballistarii,Fast Attack,4,10,3,3,4,6,6,2,8,4,6,6,,1,4,1,6,TRUE,FALSE,FALSE,FALSE,7,0,1,Ironstrider Ballistarii
-Sydonian Dragoons,Fast Attack,3,10,3,3,4,6,6,3,8,4,6,6,,1,3,1,6,TRUE,TRUE,FALSE,FALSE,7,0,2,Sydonian Dragoons
-Onager Dunecrawler,Heavy Support,6,8,5,3,6,7,11,3,8,3,5,5,,0,0,1,1,TRUE,TRUE,FALSE,FALSE,7,0,2,Onager Dunecrawler
+name,role,power,movement,combat_skill,shooting_skill,strength,toughness,wounds,attacks,leadership,armor_save,invul_shooting,invul_combat,single_model_point_cost,model_count_increment,power_for_each_increment,min_model_count,max_model_count,fnp,leaderAttacks,slots,
+Cawl,HQ,13,6,2,2,5,6,8,4,9,2,5,5,250,0,0,1,1,7,0,3,Cawl
+Tech-Priest Dominus,HQ,7,6,3,2,4,4,5,3,8,2,5,5,125,0,0,1,1,7,0,3,Tech-Priest Dominus
+Tech-Priest Enginseer,Elite,3,6,4,4,4,4,4,2,8,3,6,6,40,0,0,1,1,7,0,2,Tech-Priest Enginseer
+Kataphron Breachers,Troops,9,5,4,4,5,5,3,2,7,3,6,6,35,3,9,3,12,7,0,2,Kataphron Breachers
+Kataphron Destroyers,Troops,10,5,4,4,5,5,3,1,7,4,6,6,35,3,9,3,12,7,0,2,Kataphron Destroyers
+Fulgurite Electro-Priests,Elite,4,6,3,4,3,3,1,2,8,6,5,5,16,5,3,5,20,5,0,1,Fulgurite Electro-Priests
+Corpuscarii Electro-Priests,Elite,3,6,4,3,3,3,1,2,8,6,5,5,14,5,3,5,20,5,0,2,Corpuscarii Electro-Priests
+Kastelan Robots,Heavy Support,12,8,4,4,6,7,6,3,8,2,4,4,65,2,12,2,6,7,0,2,Kastelan Robots
+Cybernetica Datasmith,Elite,3,6,3,3,4,4,4,2,8,2,5,5,22,0,0,1,1,7,0,2,Cybernetica Datasmith
+Servitors,Elite,4,5,5,5,3,3,1,1,6,4,7,7,2,0,0,4,4,7,0,4,Servitors
+5 Skitarii Rangers,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,5,10,7,1,6,Skitarii Rangers
+5 Skitarii Vanguard,Troops,4,6,4,3,3,3,1,1,7,4,6,6,50,0,0,5,10,7,1,6,Skitarii Vanguard
+10 Skitarii Rangers,Troops,4,6,4,3,3,3,1,1,7,4,6,6,10,0,0,10,10,7,1,11,Skitarii Rangers
+10 Skitarii Vanguard,Troops,4,6,4,3,3,3,1,1,7,4,6,6,10,0,0,10,10,7,1,11,Skitarii Vanguard
+Sicarian Infiltrators,Elite,6,8,3,3,4,3,2,3,7,4,6,6,18,5,6,5,10,7,1,2,Sicarian Infiltrators
+Sicarian Rustalkers,Elite,5,8,3,3,4,3,2,3,7,4,6,6,15,5,5,5,10,7,1,2,Sicarian Rustalkers
+Ironstrider Ballistarii,Fast Attack,4,10,3,3,4,6,6,2,8,4,6,6,50,1,4,1,6,7,0,1,Ironstrider Ballistarii
+Sydonian Dragoons,Fast Attack,3,10,3,3,4,6,6,3,8,4,6,6,50,1,3,1,6,7,0,2,Sydonian Dragoons
+Onager Dunecrawler,Heavy Support,6,8,5,3,6,7,11,3,8,3,5,5,90,0,0,1,1,7,0,2,Onager Dunecrawler

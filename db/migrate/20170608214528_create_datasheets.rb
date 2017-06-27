@@ -19,10 +19,9 @@ class CreateDatasheets < ActiveRecord::Migration[5.0]
       t.integer :power_for_each_increment
       t.integer :min_model_count
       t.integer :max_model_count
-      t.boolean :first_slot
-      t.boolean :second_slot
-      t.boolean :third_slot
-      t.boolean :fourth_slot
+
+      t.integer :slots
+
 
       t.timestamps
     end

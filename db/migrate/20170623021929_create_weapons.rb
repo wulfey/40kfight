@@ -43,10 +43,10 @@ class CreateWeapons < ActiveRecord::Migration[5.0]
         t.integer :secondShootStrength
         t.integer :thirdShootStrength
         t.integer :fourthShootStrength
-
+        t.text :weapon_type
         t.timestamps
     end
 
-      
+
   end
 end
