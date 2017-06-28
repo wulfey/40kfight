@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625205702) do
+ActiveRecord::Schema.define(version: 20170628002125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,7 +229,9 @@ ActiveRecord::Schema.define(version: 20170625205702) do
     t.text     "abilities",                  default: [],                 array: true
     t.text     "abilities_second",           default: [],                 array: true
     t.integer  "datasheet_id"
+    t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_weapons_on_datasheet_id", using: :btree
+    t.index ["unit_id"], name: "index_weapons_on_unit_id", using: :btree
   end
 
   add_foreign_key "detachments", "lists"
@@ -239,4 +241,5 @@ ActiveRecord::Schema.define(version: 20170625205702) do
   add_foreign_key "units", "datasheets"
   add_foreign_key "units", "detachments"
   add_foreign_key "weapons", "datasheets"
+  add_foreign_key "weapons", "units"
 end

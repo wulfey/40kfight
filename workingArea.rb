@@ -1,7 +1,7 @@
 u.name = d.name
 u.role = d.role
 u.power = d.power
-u.movement = dmovement
+u.movement = d.movement
 u.shooting_skill = d.shooting_skill
 u.strength = d.strength
 u.combat_skill = d.combat_skill

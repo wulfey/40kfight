@@ -159,4 +159,3 @@ Onager Dunecrawler,Icarus array,1,TRUE,FALSE,heavy,48,1,7,3,1,0,0,0,1,40,,,,TRUE
 Onager Dunecrawler,Neutron laser,1,TRUE,FALSE,heavy,48,1,10,0,1,0,0,0,0,45,neutron,,,TRUE,36,3,4,0,1,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
 Onager Dunecrawler,Twin heavy phosphor blaster,1,TRUE,FALSE,heavy,36,6,6,2,1,0,0,0,0,30,ignoreCover,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
 Onager Dunecrawler,Cognis heavy stubber,2,TRUE,FALSE,heavy,36,3,4,0,1,0,0,0,0,8,,,,TRUE,0,0,0,0,0,0,0,0,0,,0,0,0,0,0,,0,0,0,0,0
-,,,,,,,,,,,,,,,,,,,TRUE,,,,,,,,,,,,,,,,,,,,,
