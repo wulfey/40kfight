@@ -17,7 +17,7 @@ class DatasheetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create datasheet" do
     assert_difference('Datasheet.count') do
-      post datasheets_url, params: { datasheet: { armor_save: @datasheet.armor_save, attacks: @datasheet.attacks, combat_skill: @datasheet.combat_skill, first_slot: @datasheet.first_slot, fourth_slot: @datasheet.fourth_slot, invul_combat: @datasheet.invul_combat, invul_shooting: @datasheet.invul_shooting, leadership: @datasheet.leadership, max_model_count: @datasheet.max_model_count, min_model_count: @datasheet.min_model_count, model_count_increment: @datasheet.model_count_increment, movement: @datasheet.movement, name: @datasheet.name, power: @datasheet.power, power_for_each_increment: @datasheet.power_for_each_increment, role: @datasheet.role, second_slot: @datasheet.second_slot, shooting_skill: @datasheet.shooting_skill, single_model_point_cost: @datasheet.single_model_point_cost, strength: @datasheet.strength, third_slot: @datasheet.third_slot, wounds: @datasheet.wounds } }
+      post datasheets_url, params: { datasheet: { armor_save: @datasheet.armor_save} }
     end
 
     assert_redirected_to datasheet_url(Datasheet.last)
@@ -34,7 +34,7 @@ class DatasheetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update datasheet" do
-    patch datasheet_url(@datasheet), params: { datasheet: { armor_save: @datasheet.armor_save, attacks: @datasheet.attacks, combat_skill: @datasheet.combat_skill, first_slot: @datasheet.first_slot, fourth_slot: @datasheet.fourth_slot, invul_combat: @datasheet.invul_combat, invul_shooting: @datasheet.invul_shooting, leadership: @datasheet.leadership, max_model_count: @datasheet.max_model_count, min_model_count: @datasheet.min_model_count, model_count_increment: @datasheet.model_count_increment, movement: @datasheet.movement, name: @datasheet.name, power: @datasheet.power, power_for_each_increment: @datasheet.power_for_each_increment, role: @datasheet.role, second_slot: @datasheet.second_slot, shooting_skill: @datasheet.shooting_skill, single_model_point_cost: @datasheet.single_model_point_cost, strength: @datasheet.strength, third_slot: @datasheet.third_slot, wounds: @datasheet.wounds } }
+    patch datasheet_url(@datasheet), params: { datasheet: { armor_save: @datasheet.armor_save } }
     assert_redirected_to datasheet_url(@datasheet)
   end
 

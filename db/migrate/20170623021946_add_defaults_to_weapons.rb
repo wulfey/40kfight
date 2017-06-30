@@ -29,5 +29,7 @@ class AddDefaultsToWeapons < ActiveRecord::Migration[5.0]
     add_column :weapons, :allequipped, :boolean, default: true
     add_column :weapons, :abilities, :text, array:true, default: []
     add_column :weapons, :abilities_second, :text, array:true, default: []
+    add_column :weapons, :abilities_third, :text, array:true, default: []
+    add_column :weapons, :abilities_fourth, :text, array:true, default: []
   end
 end

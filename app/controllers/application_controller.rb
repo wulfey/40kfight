@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
     # but they are available to all the controllers
     helper_method :current_user, :logged_in?
 
+    # before_filter :require_login
+
+
+
+
+
     # def current_user
     #   # return this user if session:user_id exists in the session hash based on said user_id
     #   # gives the whole user object from the session hash
@@ -27,7 +33,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    private
 
+      def require_login
+        unless current_user
+          redirect_to new_user_session_path
+        end
+      end
 
 
 end

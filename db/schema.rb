@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628002125) do
+ActiveRecord::Schema.define(version: 20170630012305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20170628002125) do
     t.text     "faction_keywords",         default: [],              array: true
     t.text     "keywords",                 default: [],              array: true
     t.integer  "leaderAttacks",            default: 1
+    t.text     "abilities",                default: [],              array: true
+  end
+
+  create_table "datasheets_simulations", id: false, force: :cascade do |t|
+    t.integer "simulation_id"
+    t.integer "datasheet_id"
+    t.index ["datasheet_id"], name: "index_datasheets_simulations_on_datasheet_id", using: :btree
+    t.index ["simulation_id"], name: "index_datasheets_simulations_on_simulation_id", using: :btree
   end
 
   create_table "detachments", force: :cascade do |t|
@@ -90,7 +98,6 @@ ActiveRecord::Schema.define(version: 20170628002125) do
     t.integer  "simulation_id"
     t.string   "attacker"
     t.string   "target"
-    t.string   "string"
     t.integer  "dice"
     t.text     "description"
     t.integer  "woundsdealt"
@@ -109,6 +116,20 @@ ActiveRecord::Schema.define(version: 20170628002125) do
     t.datetime "updated_at",              null: false
     t.text     "resulttext", default: [],              array: true
     t.index ["user_id"], name: "index_simulations_on_user_id", using: :btree
+  end
+
+  create_table "simulations_datasheets", id: false, force: :cascade do |t|
+    t.integer "simulation_id"
+    t.integer "datasheet_id"
+    t.index ["datasheet_id"], name: "index_simulations_datasheets_on_datasheet_id", using: :btree
+    t.index ["simulation_id"], name: "index_simulations_datasheets_on_simulation_id", using: :btree
+  end
+
+  create_table "simulations_units", id: false, force: :cascade do |t|
+    t.integer "simulation_id"
+    t.integer "unit_id"
+    t.index ["simulation_id"], name: "index_simulations_units_on_simulation_id", using: :btree
+    t.index ["unit_id"], name: "index_simulations_units_on_unit_id", using: :btree
   end
 
   create_table "units", force: :cascade do |t|
@@ -139,8 +160,16 @@ ActiveRecord::Schema.define(version: 20170628002125) do
     t.integer  "fnp",                      default: 7
     t.text     "faction_keywords",         default: [],              array: true
     t.text     "keywords",                 default: [],              array: true
+    t.text     "abilities",                default: [],              array: true
     t.index ["datasheet_id"], name: "index_units_on_datasheet_id", using: :btree
     t.index ["detachment_id"], name: "index_units_on_detachment_id", using: :btree
+  end
+
+  create_table "units_simulations", id: false, force: :cascade do |t|
+    t.integer "simulation_id"
+    t.integer "unit_id"
+    t.index ["simulation_id"], name: "index_units_simulations_on_simulation_id", using: :btree
+    t.index ["unit_id"], name: "index_units_simulations_on_unit_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -228,6 +257,8 @@ ActiveRecord::Schema.define(version: 20170628002125) do
     t.boolean  "allequipped",                default: true
     t.text     "abilities",                  default: [],                 array: true
     t.text     "abilities_second",           default: [],                 array: true
+    t.text     "abilities_third",            default: [],                 array: true
+    t.text     "abilities_fourth",           default: [],                 array: true
     t.integer  "datasheet_id"
     t.integer  "unit_id"
     t.index ["datasheet_id"], name: "index_weapons_on_datasheet_id", using: :btree

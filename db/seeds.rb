@@ -35,6 +35,7 @@ csv.each do |row|
     t.fnp = row['fnp']
     t.leaderAttacks = row['leaderAttacks']
     t.slots = row['slots']
+    t.abilities << row['abilities']
 
     t.save
     puts "#{t.name} saved"
@@ -87,6 +88,11 @@ csv2.each do |row|
     t.fourthShootStrength = row['fourthShootStrength']
     t.abilities << row['abilities']
     t.abilities_second << row['abilities_second']
+    t.abilities_third << row['abilities_third']
+    t.abilities_fourth << row['abilities_fourth']
+
+
+
 
 
 
@@ -104,23 +110,59 @@ total = Weapon.count
 i = 1
 while i <= total do
     wep = Weapon.find(i)
-    abilities1 = wep.abilities
-    abilities2 = wep.abilities_second
 
-    if abilities1 == [nil]
+    if wep.abilities == [nil]
         wep.abilities = []
     end
-    if abilities2 == [nil]
+    if wep.abilities_second == [nil]
         wep.abilities_second = []
     end
+    if wep.abilities_third == [nil]
+        wep.abilities_third = []
+    end
+    if wep.abilities_fourth == [nil]
+        wep.abilities_fourth = []
+    end
+
     if wep.abilities.count > 0
         wep.abilities = wep.abilities[0].partition("/")
         wep.abilities.delete("/")
+        wep.abilities.delete("")
     end
     if wep.abilities_second.count > 0
         wep.abilities_second = wep.abilities_second[0].partition("/")
         wep.abilities_second.delete("/")
+        wep.abilities.delete("")
     end
+    if wep.abilities_third.count > 0
+        wep.abilities_third = wep.abilities_third[0].partition("/")
+        wep.abilities_third.delete("/")
+        wep.abilities.delete("")
+    end
+    if wep.abilities_fourth.count > 0
+        wep.abilities_fourth = wep.abilities_fourth[0].partition("/")
+        wep.abilities_fourth.delete("/")
+        wep.abilities.delete("")
+    end
+    wep.save
+    i+=1
+end
+
+
+total = Datasheet.count
+i = 1
+while i <= total do
+    wep = Datasheet.find(i)
+
+    if wep.abilities == [nil]
+        wep.abilities = []
+    end
+    if wep.abilities.count > 0
+        wep.abilities = wep.abilities[0].partition("/")
+        wep.abilities.delete("/")
+        wep.abilities.delete("")
+    end
+
     wep.save
     i+=1
 end
@@ -156,6 +198,7 @@ while i <= total do
     u.fnp = d.fnp
     u.faction_keywords = d.faction_keywords
     u.keywords = d.keywords
+    u.abilities = d.abilities
     u.save
     puts "There are now #{Unit.count} rows in the Unit table, at Datasheet numer #{i}, #{d.name}"
     i+=1

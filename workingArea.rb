@@ -21,3 +21,23 @@ u.toughness = d.toughness
 u.fnp = d.fnp
 u.faction_keywords = d.faction_keywords
 u.keywords = d.keywords
+
+
+a = Unit.find(2)
+t = Datasheet.find(8)
+s = Simulation.new
+s.any_attack(a,t)
+
+
+
+a = Unit.find(2)
+t = Datasheet.find(11)
+s = Simulation.new
+s.any_attack(a,t)
+
+
+
+a = Unit.find(16)
+t = Datasheet.find(19)
+s = Simulation.new
+s.any_attack(a,t)

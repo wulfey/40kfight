@@ -90,25 +90,7 @@
   <%= @datasheet.max_model_count %>
 </p>
 
-<p>
-  <strong>First slot:</strong>
-  <%= @datasheet.first_slot %>
-</p>
-
-<p>
-  <strong>Second slot:</strong>
-  <%= @datasheet.second_slot %>
-</p>
-
-<p>
-  <strong>Third slot:</strong>
-  <%= @datasheet.third_slot %>
-</p>
-
-<p>
-  <strong>Fourth slot:</strong>
-  <%= @datasheet.fourth_slot %>
-</p>
 
 <%= link_to 'Edit', edit_datasheet_path(@datasheet) %> |
-<%= link_to 'Back', datasheets_path %>
+<%= link_to 'Back', datasheets_path %> |
+<%= link_to 'Your Simulation', simulation_path(current_user.simulation.id) %>

@@ -7,11 +7,43 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show simulation</h1>
+  <h1>Your Simulation</h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>User:</dt>
-  <dd><%= @simulation.user %></dd>
+  <dd><%= @simulation.user.email %></dd>
 
 </dl>
+
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Attacker
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <% for i in 1..@units.count   %>
+      <li><a href="/simulations/<%= @simulation.id %>/units/<%=i%>"><%= @units[i] %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<% if @simulation.units.count > 0 %>
+  <%= link_to @simulation.units.first.name, unit_path(@simulation.units.first.id), class: "btn btn-danger btn-lg btn-xlarge" %>
+<% end %>
+
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Target
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <% for i in 1..@datasheets.count   %>
+      <li><a href="/simulations/<%= @simulation.id %>/datasheets/<%=i%>"><%= @datasheets[i] %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<% if @simulation.datasheets.count > 0 %>
+  <%= link_to @simulation.datasheets.first.name, datasheet_path(@simulation.datasheets.first.id), class: "btn btn-danger btn-lg btn-xlarge" %>
+<% end %>
+
+<% if @simulation.datasheets.count > 0 && @simulation.units.count > 0 %>
+    <%= link_to "Attack the Target", any_attack_path(@simulation.id), class: "btn btn-success btn-lg btn-xlarge" %>
+<% end %>
