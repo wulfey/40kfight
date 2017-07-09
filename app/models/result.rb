@@ -1,3 +1,4 @@
 class Result < ApplicationRecord
-  belongs_to :simulation
+  belongs_to :attack_group
+
 end

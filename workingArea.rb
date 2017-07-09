@@ -1,3 +1,10 @@
+s = Simulation.last
+ag = s.attack_groups.last
+r = Result.last
+ag.results << r
+
+
+
 u.name = d.name
 u.role = d.role
 u.power = d.power

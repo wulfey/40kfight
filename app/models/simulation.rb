@@ -2,7 +2,8 @@ class Simulation < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :units
   has_and_belongs_to_many :datasheets
-  has_many :results
+  has_many :attack_groups
+  has_many :results, :through => :attack_groups
 
     def d6
       rand(1..6)
@@ -69,7 +70,7 @@ class Simulation < ApplicationRecord
 # result
 # attacker: string, target: string, string: string, dice: integer, description: text, woundsdealt: integer, average: float, toughness: integer, armor: integer, invul: integer,
 
-    def runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wepID, wepDAMd3, wepDAMd6)
+    def runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wepID, wepDAMd3, wepDAMd6, res)
 
 
         wep = Weapon.find(wepID)
@@ -172,20 +173,84 @@ class Simulation < ApplicationRecord
 
         # TODO handle multiple wound allocations over the target
 
-        puts "Attack by #{a.name} against #{t.name} wounded #{failedSaves} times."
+        models = t.min_model_count
+        tWounds = t.wounds
+        modelArray = []
+        models.times do
+          modelArray << tWounds
+        end
+        damageDealt = 0
+        kills = 0
 
-        
+        baseDmg = dmg
+        # overKill = 0
+        failedSaves.times do
+          if modelArray[0] == nil
+            break
+          else
+            dmg = baseDmg
+            if wepDAMd3
+              dmg = 0
+              baseDmg.times do
+                dmg += d3
+              end
+            elsif wepDAMd6
+              dmg = 0
+              baseDmg.times do
+                dmg += d6
+              end
+            end
+            # TODO handle all the special rules damage modifiers here
+            modelArray[0] -= dmg
+            damageDealt += dmg
+            if modelArray[0] < 1
+              kills += 1
+              damageDealt += modelArray[0]
+              modelArray.shift
+            end
+          end
+        end
+
+
+        text = "#{Weapon.find(wepID).name}: #{atks} attacks by #{a.min_model_count} #{a.name} against #{t.min_model_count}  #{t.name} hit #{attack_roll.count} times and wounded #{wound_roll.count} times  with #{failedSaves} failed saves. Dealt #{damageDealt}, thereby killing #{kills} models."
+
+
+        res.hitCount += attack_roll.count
+        res.woundCount += wound_roll.count
+        res.weaponName = Weapon.find(wepID).name
+        res.failedSaves += failedSaves
+        res.kills += kills
+        res.results_array << text
+        res.woundsdealt += damageDealt
+        res.attacker = a.name
+        res.target = t.name
+
+
+
+
+
+
         # ALLOCATE WOUNDS
 
         # GENERATE AND SAVE RESULTS
 
     end
 
+# *****************************************************************
+# *****************************************************************
+# *****************************************************************
     def any_attack(a, t)
     #   a = attack, t = target
-    a.weapons.each do |wep|
-        # res = Result.new
+    ag = AttackGroup.new(attacker: a.name, target: t.name)
+    self.attack_groups << ag
+    self.save
 
+
+    a.weapons.each do |wep|
+        res = Result.new
+
+
+        res.slot = wep.slot
 
 
         # get first subweapon parameters
@@ -199,8 +264,12 @@ class Simulation < ApplicationRecord
         wepDAMd6 = wep.firstShootAttacksDamageD6
         abilities = wep.abilities
 
+        if wep.allequipped
+          atks = atks * a.min_model_count
+        end
 
-        runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6)
+
+        runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
 
         # second weapon check
         if wep.secondShootAttacks > 0
@@ -213,34 +282,38 @@ class Simulation < ApplicationRecord
             wepDAMd3 = wep.secondShootAttacksDamageD3
             wepDAMd6 = wep.secondShootAttacksDamageD6
             abilites = wep.abilities_second
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6)
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
         end
         # third weapon check
         if wep.thirdShootAttacks > 0
             atks = wep.thirdShootAttacks
             str = wep.thirdShootStrength
             rend = wep.thirdShootRend
-            wepd3 = wep.thirdShootAttacksD3
-            wepd6 = wep.thirdShootAttacksD6
+            wepd3 = 0
+            wepd6 = 0
             abilities = wep.abilities_third
             dmg = wep.thirdShootDamage
             wepDAMd3 = 0
             wepDAMd6 = 0
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6)
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
         end
         # fourth weapon check
         if wep.fourthShootAttacks > 0
             atks = wep.fourthShootAttacks
             str = wep.fourthShootStrength
             rend = wep.fourthShootRend
-            wepd3 = wep.fourthShootAttacksD3
-            wepd6 = wep.fourthShootAttacksD6
+            wepd3 = 0
+            wepd6 = 0
             abilities = wep.abilities_fourth
             dmg = wep.fourthShootDamage
             wepDAMd3 = 0
             wepDAMd6 = 0
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6)
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
         end
+
+
+        self.attack_groups.last.results << res
+        self.save
 
     end
 

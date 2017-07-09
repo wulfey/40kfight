@@ -24,6 +24,8 @@ class SimulationsController < ApplicationController
           @datasheets[i] = Datasheet.find(i).name
           i+=1
       end
+
+
   end
 
   # GET /simulations/new

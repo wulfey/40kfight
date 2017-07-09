@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630012305) do
+ActiveRecord::Schema.define(version: 20170708051000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attack_groups", force: :cascade do |t|
+    t.integer  "simulation_id"
+    t.text     "attacker"
+    t.text     "target"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["simulation_id"], name: "index_attack_groups_on_simulation_id", using: :btree
+  end
 
   create_table "datasheets", force: :cascade do |t|
     t.text     "name"
@@ -98,15 +107,18 @@ ActiveRecord::Schema.define(version: 20170630012305) do
     t.integer  "simulation_id"
     t.string   "attacker"
     t.string   "target"
-    t.integer  "dice"
-    t.text     "description"
-    t.integer  "woundsdealt"
-    t.float    "average"
-    t.integer  "toughness"
-    t.integer  "armor"
-    t.integer  "invul"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "woundsdealt",     default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "results_array",   default: [],              array: true
+    t.integer  "hitCount",        default: 0
+    t.integer  "woundCount",      default: 0
+    t.text     "weaponName"
+    t.integer  "failedSaves",     default: 0
+    t.integer  "kills",           default: 0
+    t.integer  "slot",            default: 1
+    t.integer  "attack_group_id"
+    t.index ["attack_group_id"], name: "index_results_on_attack_group_id", using: :btree
     t.index ["simulation_id"], name: "index_results_on_simulation_id", using: :btree
   end
 
@@ -265,8 +277,10 @@ ActiveRecord::Schema.define(version: 20170630012305) do
     t.index ["unit_id"], name: "index_weapons_on_unit_id", using: :btree
   end
 
+  add_foreign_key "attack_groups", "simulations"
   add_foreign_key "detachments", "lists"
   add_foreign_key "lists", "users"
+  add_foreign_key "results", "attack_groups"
   add_foreign_key "results", "simulations"
   add_foreign_key "simulations", "users"
   add_foreign_key "units", "datasheets"

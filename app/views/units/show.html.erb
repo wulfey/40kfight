@@ -96,4 +96,5 @@
 </p>
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+<%= link_to 'Back', units_path %> |
+<%= link_to 'Your Simulation', simulation_path(current_user.simulation.id) %>
