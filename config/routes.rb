@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :simulations
     get   '/simulations/:id/units/:unit_id',   to: 'simulations#change_unit'
     get   '/simulations/:id/datasheets/:datasheet_id',   to: 'simulations#change_datasheet'
-    get   '/simulations/:id/any_attack', to: 'simulations#any_attack', as: 'any_attack'
+    post   '/simulations/:id/any_attack', to: 'simulations#any_attack', as: 'any_attack'
 
 
     resources :datasheets

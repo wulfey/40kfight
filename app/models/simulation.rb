@@ -315,9 +315,10 @@ class Simulation < ApplicationRecord
         self.attack_groups.last.results << res
         self.save
 
-    end
+      end
 
-  end
+    return self.attack_groups.last
+    end
 
 
 end

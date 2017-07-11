@@ -45,7 +45,7 @@
 <% end %>
 
 <% if @simulation.datasheets.count > 0 && @simulation.units.count > 0 %>
-    <%= link_to "Attack the Target", any_attack_path(@simulation.id), class: "btn btn-success btn-lg btn-xlarge" %>
+    <%= button_to "Attack the Target", any_attack_path(@simulation.id), class: "btn btn-success btn-lg btn-xlarge" %>
 <% end %>
 
 
@@ -65,5 +65,5 @@
 
 <div class="message-wr">
   <%= render '/messages/messages' %>
-  <%= render '/messages/message_form' %>
+  <!-- <%= render '/messages/message_form' %> -->
 </div>

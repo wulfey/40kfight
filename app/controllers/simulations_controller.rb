@@ -71,9 +71,36 @@ class SimulationsController < ApplicationController
   def any_attack
     @simulation = Simulation.find(params[:id])
 
-    @results = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first)
+    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first)
 
-    redirect_to @simulation
+
+
+    # slots = @simulation.units.first.slots
+    # redirect_to "/messages(#{res.results_array[0]})"
+    # redirect_to "/messages(:content => '#{@lastAG.results.first.results_array[0]}')"
+
+
+
+    @lastAG.results.each do |res|
+      message = current_user.messages.build(:content => res.results_array[0], :user_id => current_user.id)
+      if message.save
+
+        # ActionCable
+        ActionCable.server.broadcast 'room_channel',
+                                     content:  message.content,
+                                     username: current_user.username
+
+      # else
+      #   render 'index'
+      end
+    end
+
+
+    # redirect_to @simulation
+
+
+
+
   end
 
   # get /simulations/:id/unit/:unit_id
