@@ -1,0 +1,9 @@
+<div id="messages" class="messages">
+  <div id="messages-table" class="messages-table">
+    <% if @messages != nil %>
+      <% @messages.each do |mes| %>
+        <%= render mes %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

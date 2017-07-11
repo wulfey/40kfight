@@ -1,6 +1,17 @@
 class SimulationsController < ApplicationController
   before_action :set_simulation, only: [:show, :edit, :update, :destroy]
 
+  before_action :logged_in?
+  before_action :get_messages
+
+
+
+
+
+
+
+
+
   # GET /simulations
   # GET /simulations.json
   def index
@@ -130,5 +141,14 @@ class SimulationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def simulation_params
       params.require(:simulation).permit(:id, :user_id, :unit_id, :datasheet_id)
+    end
+
+    def get_messages
+      @messages = Message.for_display
+      @message  = current_user.messages.build
+    end
+
+    def message_params
+      params.require(:message).permit(:content, :username)
     end
 end

@@ -12,7 +12,7 @@
 
 <dl class="dl-horizontal">
   <dt>User:</dt>
-  <dd><%= @simulation.user.email %></dd>
+  <dd><%= @simulation.user.username %></dd>
 
 </dl>
 
@@ -62,3 +62,8 @@
   <% end %>
 
 <% end %>
+
+<div class="message-wr">
+  <%= render '/messages/messages' %>
+  <%= render '/messages/message_form' %>
+</div>

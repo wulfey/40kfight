@@ -1,4 +1,26 @@
 
+class AddUserNamesToUsers < ActiveRecord::Migration[5.0]
+  def change
+    add_column :users, :username
+    add_column :users, :password_digest
+    add_index :users, :username, unique: true
+
+
+
+  end
+end
+
+
+class CreateMessagesModel < ActiveRecord::Migration[5.0]
+  def change
+    create_table :messages_models do |t|
+      t.text :content
+      t.references :user, foreign_key: true
+    end
+  end
+end
+
+
 puts "ONAGER"
 puts "Icarus"
 

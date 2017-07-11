@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
+
     root 'pages#index'
     devise_for :users
+    resources :messages
     get    '/login',   to: 'sessions#new'
     post   '/login',   to: 'sessions#create'
     delete '/logout',  to: 'sessions#destroy'
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
     resources :valid_detachments
     resources :detachments
     resources :lists
+
+    mount ActionCable.server, at: '/cable'
 
     # devise_scope :user do
     #     get 'login', to: 'devise/sessions#new'

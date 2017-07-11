@@ -1,5 +1,14 @@
 class User < ApplicationRecord
 
+    has_many :messages
+    NAME_REGEX = /\w+/
+
+    validates :username, presence: true, uniqueness: { case_sensitive: false },
+                         format: { with: /\A#{NAME_REGEX}\z/i },
+                         length: { maximum: 15 }
+    validates :password, presence: true, length: { minimum: 3 }
+    # has_secure_password
+
     validates :email, uniqueness: true
     has_one :simulation
     has_many :lists
@@ -7,4 +16,12 @@ class User < ApplicationRecord
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+
+
+
+
+
+
 end
