@@ -71,20 +71,34 @@ class SimulationsController < ApplicationController
   def any_attack
     @simulation = Simulation.find(params[:id])
 
-    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first, 1)
+    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first, params[:iterations])
 
 
 
     # slots = @simulation.units.first.slots
     # redirect_to "/messages(#{res.results_array[0]})"
     # redirect_to "/messages(:content => '#{@lastAG.results.first.results_array[0]}')"
-
-    for i in 1..@simulation.units.first.slots
-      content = "Slot ##{i}: "
-      @lastAG.results.each do |res|
-        if res.slot == i
-          content += " " + res.results_array[0] + " ---"
+    if params[:iterations] == "1"
+      for i in 1..@simulation.units.first.slots
+        content = "Slot ##{i}: "
+        @lastAG.results.each do |res|
+          if res.slot == i
+            content += " " + res.results_array[0] + " ---"
+          end
         end
+        message = current_user.messages.build(:content => content, :user_id => current_user.id)
+        if message.save
+          # ActionCable
+          ActionCable.server.broadcast 'room_channel',
+                                       content:  message.content,
+                                       username: current_user.username
+
+        end
+      end
+    else
+      content = ""
+      @lastAG.averages.each do |avg|
+        content += " " + avg + " ---"
       end
       message = current_user.messages.build(:content => content, :user_id => current_user.id)
       if message.save
@@ -95,6 +109,7 @@ class SimulationsController < ApplicationController
 
       end
     end
+
 
     # @lastAG.results.each do |res|
     #   message = current_user.messages.build(:content => res.results_array[0], :user_id => current_user.id)

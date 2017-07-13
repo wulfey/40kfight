@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_battle_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Battle
+  <% end %>
+  <h1>Listing battles</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>User</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @battles) do |battle| %>
+            <td><%= battle.name %></td>
+            <td><%= battle.user %></td>
+            <td><%= link_to 'Show', battle %></td>
+        <td><%= link_to 'Edit', edit_battle_path(battle) %></td>
+        <td><%= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

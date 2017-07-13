@@ -70,7 +70,7 @@ class Simulation < ApplicationRecord
 # result
 # attacker: string, target: string, string: string, dice: integer, description: text, woundsdealt: integer, average: float, toughness: integer, armor: integer, invul: integer,
 
-    def runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wepID, wepDAMd3, wepDAMd6, res)
+    def runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wepID, wepDAMd3, wepDAMd6, res, iterations)
 
 
         wep = Weapon.find(wepID)
@@ -173,7 +173,7 @@ class Simulation < ApplicationRecord
 
         # TODO handle multiple wound allocations over the target
 
-        models = t.min_model_count
+        models = t.min_model_count * iterations
         tWounds = t.wounds
         modelArray = []
         models.times do
@@ -239,14 +239,16 @@ class Simulation < ApplicationRecord
 # *****************************************************************
 # *****************************************************************
 # *****************************************************************
-    def any_attack(a, t, iterations)
+  def any_attack(a, t, iterations)
     #   a = attack, t = target
     ag = AttackGroup.new(attacker: a.name, target: t.name)
     self.attack_groups << ag
     self.save
 
+    iterations = iterations.to_i
 
-    a.weapons.each do |wep|
+    # for i in 1..iterations
+      a.weapons.each do |wep|
         res = Result.new
 
 
@@ -254,7 +256,7 @@ class Simulation < ApplicationRecord
 
 
         # get first subweapon parameters
-        atks = wep.firstShootAttacks
+        atks = wep.firstShootAttacks * iterations
         str = wep.firstShootStrength
         rend = wep.firstShootRend
         wepd3 = wep.firstShootAttacksD3
@@ -269,11 +271,11 @@ class Simulation < ApplicationRecord
         end
 
 
-        runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
+        runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res, iterations)
 
         # second weapon check
         if wep.secondShootAttacks > 0
-            atks = wep.secondShootAttacks
+            atks = wep.secondShootAttacks * iterations
             str = wep.secondShootStrength
             rend = wep.secondShootRend
             wepd3 = wep.secondShootAttacksD3
@@ -282,11 +284,14 @@ class Simulation < ApplicationRecord
             wepDAMd3 = wep.secondShootAttacksDamageD3
             wepDAMd6 = wep.secondShootAttacksDamageD6
             abilites = wep.abilities_second
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
+            if wep.allequipped
+              atks = atks * a.min_model_count
+            end
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res, iterations)
         end
         # third weapon check
         if wep.thirdShootAttacks > 0
-            atks = wep.thirdShootAttacks
+            atks = wep.thirdShootAttacks * iterations
             str = wep.thirdShootStrength
             rend = wep.thirdShootRend
             wepd3 = 0
@@ -295,11 +300,14 @@ class Simulation < ApplicationRecord
             dmg = wep.thirdShootDamage
             wepDAMd3 = 0
             wepDAMd6 = 0
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
+            if wep.allequipped
+              atks = atks * a.min_model_count
+            end
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res, iterations)
         end
         # fourth weapon check
         if wep.fourthShootAttacks > 0
-            atks = wep.fourthShootAttacks
+            atks = wep.fourthShootAttacks * iterations
             str = wep.fourthShootStrength
             rend = wep.fourthShootRend
             wepd3 = 0
@@ -308,7 +316,10 @@ class Simulation < ApplicationRecord
             dmg = wep.fourthShootDamage
             wepDAMd3 = 0
             wepDAMd6 = 0
-            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res)
+            if wep.allequipped
+              atks = atks * a.min_model_count
+            end
+            runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wep.id, wepDAMd3, wepDAMd6, res, iterations)
         end
 
 
@@ -316,9 +327,69 @@ class Simulation < ApplicationRecord
         self.save
 
       end
+    # end
+
+    iterations *= 1.0
+
+    if iterations > 1
+
+      # go through and find all the names in the attack group
+      wepHash = {}
+
+      self.attack_groups.last.results.each do |res|
+        wepHash[res.weaponName] = [0,0,0,0,0]
+        # hitCount,woundCount,failedSaves,woundsdealt,kills
+      end
+
+
+      self.attack_groups.last.results.each do |res|
+        wepHash[res.weaponName][0] += res.hitCount
+        wepHash[res.weaponName][1] += res.woundCount
+        wepHash[res.weaponName][2] += res.failedSaves
+        wepHash[res.weaponName][3] += res.woundsdealt
+        wepHash[res.weaponName][4] += res.kills
+      end
+
+      #
+      # puts "**************************************"
+      # print wepHash
+      # puts ""
+      # puts "**************************************"
+
+
+      ary = []
+      wepHash.each do |namedWeapon|
+
+        averageText = "Averages for #{iterations.to_i} attacks by #{a.min_model_count} #{a.name} against #{t.min_model_count}  #{t.name} using #{namedWeapon[0]}:  #{namedWeapon[1][0]/iterations} hits with  #{namedWeapon[1][1]/iterations} wounds, and #{namedWeapon[1][2]/iterations} failed saves. Dealt #{namedWeapon[1][3]/iterations}, thereby killing average of #{namedWeapon[1][4]/iterations} models."
+
+        # puts "**************************************"
+        # print averageText
+        # puts ""
+        # puts "**************************************"
+        ary << averageText
+      end
+
+
+
+      # puts "**************************************"
+      # print ary
+      # puts ""
+      # puts "**************************************"
+
+      ag = self.attack_groups.last
+      ag.averages = ary
+      ag.save
+
+      # puts "**************************************"
+      # print self.attack_groups.last.averages
+      # puts ""
+      # puts "**************************************"
+
+
+    end
 
     return self.attack_groups.last
-    end
+  end
 
 
 end

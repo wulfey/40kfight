@@ -45,8 +45,22 @@
 <% end %>
 
 <% if @simulation.datasheets.count > 0 && @simulation.units.count > 0 %>
-    <%= button_to "Attack the Target", any_attack_path(@simulation.id), class: "btn btn-success btn-lg btn-xlarge" %>
+    <%= button_to "Attack the Target", any_attack_path(@simulation.id,1), class: "btn btn-success btn-lg btn-xlarge" %>
 <% end %>
+
+<% if @simulation.datasheets.count > 0 && @simulation.units.count > 0 %>
+    <%= button_to "Attack the Target 20 Times", any_attack_path(@simulation.id,20), class: "btn btn-success btn-lg btn-xlarge" %>
+<% end %>
+
+
+
+
+
+<div class="message-wr">
+  <%= render '/messages/messages' %>
+  <!-- <%= render '/messages/message_form' %> -->
+</div>
+
 
 
 
@@ -63,8 +77,3 @@
   <% end %>
   <br />
 <% end %>
-
-<div class="message-wr">
-  <%= render '/messages/messages' %>
-  <!-- <%= render '/messages/message_form' %> -->
-</div>

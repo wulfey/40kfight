@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709222610) do
+ActiveRecord::Schema.define(version: 20170713030800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20170709222610) do
     t.integer  "simulation_id"
     t.text     "attacker"
     t.text     "target"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "averages",      default: [],              array: true
     t.index ["simulation_id"], name: "index_attack_groups_on_simulation_id", using: :btree
   end
 

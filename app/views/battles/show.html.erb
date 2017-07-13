@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to battles_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_battle_path(@battle), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show battle</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @battle.name %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @battle.user %></dd>
+
+</dl>
