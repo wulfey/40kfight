@@ -71,7 +71,7 @@ class SimulationsController < ApplicationController
   def any_attack
     @simulation = Simulation.find(params[:id])
 
-    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first)
+    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first, 1)
 
 
 
@@ -79,27 +79,37 @@ class SimulationsController < ApplicationController
     # redirect_to "/messages(#{res.results_array[0]})"
     # redirect_to "/messages(:content => '#{@lastAG.results.first.results_array[0]}')"
 
-
-
-    @lastAG.results.each do |res|
-      message = current_user.messages.build(:content => res.results_array[0], :user_id => current_user.id)
+    for i in 1..@simulation.units.first.slots
+      content = "Slot ##{i}: "
+      @lastAG.results.each do |res|
+        if res.slot == i
+          content += " " + res.results_array[0] + " ---"
+        end
+      end
+      message = current_user.messages.build(:content => content, :user_id => current_user.id)
       if message.save
-
         # ActionCable
         ActionCable.server.broadcast 'room_channel',
                                      content:  message.content,
                                      username: current_user.username
 
-      # else
-      #   render 'index'
       end
     end
 
-
+    # @lastAG.results.each do |res|
+    #   message = current_user.messages.build(:content => res.results_array[0], :user_id => current_user.id)
+    #   if message.save
+    #
+    #     # ActionCable
+    #     ActionCable.server.broadcast 'room_channel',
+    #                                  content:  message.content,
+    #                                  username: current_user.username
+    #
+    #   # else
+    #   #   render 'index'
+    #   end
+    # end
     # redirect_to @simulation
-
-
-
 
   end
 
@@ -167,7 +177,7 @@ class SimulationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def simulation_params
-      params.require(:simulation).permit(:id, :user_id, :unit_id, :datasheet_id)
+      params.require(:simulation).permit(:id, :user_id, :unit_id, :datasheet_id, :iterations)
     end
 
     def get_messages

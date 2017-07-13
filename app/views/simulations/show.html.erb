@@ -52,15 +52,16 @@
 
 <br />
 <% if @simulation.attack_groups != nil && @simulation.attack_groups.first != nil && @simulation.attack_groups.last.results != nil %>
-
-  <% @simulation.attack_groups.last.results.each do |res| %>
-    <% res.results_array.each do |subResult| %>
-      <p>
-        <%= subResult  %>
-      </p>
+  <% for i in 1..@simulation.units.first.slots%>
+    <p>Slot #<%= i  %>: </p>
+    <% @simulation.attack_groups.last.results.each do |res| %>
+      <% if res.slot == i %>
+        <p> <%= res.results_array[0]  %> </p>
+      <% end %>
     <% end %>
+    <br />
   <% end %>
-
+  <br />
 <% end %>
 
 <div class="message-wr">

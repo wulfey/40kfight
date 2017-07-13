@@ -239,7 +239,7 @@ class Simulation < ApplicationRecord
 # *****************************************************************
 # *****************************************************************
 # *****************************************************************
-    def any_attack(a, t)
+    def any_attack(a, t, iterations)
     #   a = attack, t = target
     ag = AttackGroup.new(attacker: a.name, target: t.name)
     self.attack_groups << ag
