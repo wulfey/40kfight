@@ -7,14 +7,85 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show battle</h1>
+  <h1><%= @battle.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @battle.name %></dd>
 
-  <dt>User:</dt>
-  <dd><%= @battle.user %></dd>
+  <br />
 
 </dl>
+
+
+
+
+<div class="container">
+  <div class="panel-footer row">
+      
+        <div class="col-xs-4 text-left">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Attacker
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <% for i in 1..Datasheet.count   %>
+                <li><a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= FALSE %>"><%= Datasheet.find(i).name%></a></li>
+              <% end %>
+            </ul>
+          </div>
+          <br />
+
+
+            <% if @battle.units.count > 0 %>
+              <% @battle.units.each do |unit| %>
+                <ul class="list-group">
+                  <% if unit.team == FALSE %>
+                    <li class="list-group-item">
+                      <%= unit.name + " - "%>
+                        <label><input id="attacker_id" type="radio" value= "<%=unit.id%>"   name="attacker"></label>
+                      <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>"><span class="pull-right glyphicon glyphicon-remove"></span></a>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            <% end %>
+
+      </div>
+
+      <div class="col-xs-4 text-center">
+        <form action="/action_page.php">
+          <br />
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <div class="col-xs-4 text-right">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Target
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% for i in 1..Datasheet.count   %>
+              <li><a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= TRUE %>"><%= Datasheet.find(i).name%></a></li>
+            <% end %>
+          </ul>
+        </div>
+
+
+          <% if @battle.units.count > 0 %>
+            <% @battle.units.each do |unit| %>
+              <ul class="list-group">
+                <% if unit.team == TRUE %>
+                  <li class="list-group-item">
+                    <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>"><span class="pull-left glyphicon glyphicon-remove"></span></a>
+                    <label><input id="target_id" type="radio" value= "<%=unit.id%>" name="target"></label>
+                    <%= " - " + unit.name %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+
+      </div>
+
+
+  </div>
+</div>

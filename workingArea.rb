@@ -18,6 +18,33 @@ end
 # print h["alpha"][0] + 1
 # print h["alpha"][0] + 5
 
+# 
+# <div class="container">
+#   <div class="table-responsive">
+#     <table class="table table-striped table-bordered table-hover">
+#       <thead>
+#         <tr>
+#           <th>Simulations</th>
+#           <th></th>
+#           <th></th>
+#           <th></th>
+#         </tr>
+#       </thead>
+#
+#       <tbody>
+#         <%= content_tag_for(:tr, @simulations) do |simulation| %>
+#               <td><%= simulation.battle %></td>
+#               <td><%= link_to 'Show', simulation %></td>
+#           <td><%= link_to 'Edit', edit_simulation_path(simulation) %></td>
+#           <td><%= link_to 'Destroy', simulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+#         <% end %>
+#       </tbody>
+#     </table>
+#   </div>
+# </div>
+#
+#
+
 puts h["alpha"][0]
 h["alpha"][0] += 9
 puts h["alpha"][0]

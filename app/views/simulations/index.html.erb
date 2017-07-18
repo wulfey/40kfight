@@ -19,7 +19,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @simulations) do |simulation| %>
-            <td><%= simulation.user %></td>
+            <td><%= simulation.battle %></td>
             <td><%= link_to 'Show', simulation %></td>
         <td><%= link_to 'Edit', edit_simulation_path(simulation) %></td>
         <td><%= link_to 'Destroy', simulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,8 +1,9 @@
 class Simulation < ApplicationRecord
-  belongs_to :user
+
+  belongs_to :battle
   has_and_belongs_to_many :units
   has_and_belongs_to_many :datasheets
-  has_many :attack_groups
+  has_many :attack_groups, dependent: :destroy
   has_many :results, :through => :attack_groups
 
     def d6

@@ -11,7 +11,6 @@
     <thead>
       <tr>
             <th>Name</th>
-            <th>User</th>
             <th></th>
         <th></th>
         <th></th>
@@ -20,11 +19,12 @@
 
     <tbody>
       <%= content_tag_for(:tr, @battles) do |battle| %>
-            <td><%= battle.name %></td>
-            <td><%= battle.user %></td>
-            <td><%= link_to 'Show', battle %></td>
-        <td><%= link_to 'Edit', edit_battle_path(battle) %></td>
-        <td><%= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <td><%= battle.name %></td>
+          <td><%= link_to 'Show', battle %></td>
+          <td><%= link_to 'Edit', edit_battle_path(battle) %></td>
+          <td><%= link_to 'Destroy', battle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
     </tbody>
   </table>

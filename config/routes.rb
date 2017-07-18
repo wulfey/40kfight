@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :battles
+    resources :battles
     root 'pages#index'
     devise_for :users
     resources :messages
@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     resources :simulations
     get   '/simulations/:id/units/:unit_id',   to: 'simulations#change_unit'
     get   '/simulations/:id/datasheets/:datasheet_id',   to: 'simulations#change_datasheet'
+
+    get   '/battles/:id/datasheet/:datasheet_id/:team',   to: 'battles#change_unit'
+    get   '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
+
+    # post  '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
+
     post   '/simulations/:id/any_attack/:iterations', to: 'simulations#any_attack', as: 'any_attack'
 
 
@@ -22,6 +28,7 @@ Rails.application.routes.draw do
     resources :valid_detachments
     resources :detachments
     resources :lists
+
 
     mount ActionCable.server, at: '/cable'
 

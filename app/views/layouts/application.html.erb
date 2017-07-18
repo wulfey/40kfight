@@ -36,12 +36,13 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <% if logged_in? %>
-              <% if current_user.simulation == nil %>
-                <li><%= link_to "Create Simulator", simulations_path, method: :post %></li>
-                <!-- <li class="active"><a href="#">Simulator</a></li>
-                <li><a href="#simulator">About</a></li> -->
+              <% if current_user.battles.count < 1 %>
+                <li><%= link_to "New Battle", new_battle_path %></li>
+
+
               <% else %>
-                 <li><%= link_to "Your Simulator", simulation_path(current_user.simulation.id) %></li>
+                 <li><%= link_to "Your Battles", battles_path %></li>
+                 
               <% end %>
           <% end %>
 

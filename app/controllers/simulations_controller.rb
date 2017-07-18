@@ -47,6 +47,7 @@ class SimulationsController < ApplicationController
 
   # GET /simulations/1/edit
   def edit
+
   end
 
   # POST /simulations
@@ -201,6 +202,6 @@ class SimulationsController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:content, :username)
+      params.require(:message).permit(:content, :username, :battle_id)
     end
 end

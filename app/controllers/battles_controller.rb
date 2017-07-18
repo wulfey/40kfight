@@ -1,15 +1,19 @@
 class BattlesController < ApplicationController
   before_action :set_battle, only: [:show, :edit, :update, :destroy]
 
+
   # GET /battles
   # GET /battles.json
   def index
-    @battles = Battle.all
+    @battles = Battle.where(:user_id => current_user.id)
+    @datasheets = Datasheet.all
   end
 
   # GET /battles/1
   # GET /battles/1.json
   def show
+    @simulations = Simulation.where(:user_id => current_user.id)
+    @datasheets = Datasheet.all
   end
 
   # GET /battles/new
@@ -19,12 +23,14 @@ class BattlesController < ApplicationController
 
   # GET /battles/1/edit
   def edit
+    @battle = Battle.find(params[:id])
   end
 
   # POST /battles
   # POST /battles.json
   def create
-    @battle = Battle.new(battle_params)
+    @battle = Battle.new(params)
+    @battle.user_id = current_user.id
 
     respond_to do |format|
       if @battle.save
@@ -41,7 +47,7 @@ class BattlesController < ApplicationController
   # PATCH/PUT /battles/1.json
   def update
     respond_to do |format|
-      if @battle.update(battle_params)
+      if @battle.update(params.require(:battle).permit(:name))
         format.html { redirect_to @battle, notice: 'Battle was successfully updated.' }
         format.json { render :show, status: :ok, location: @battle }
       else
@@ -61,6 +67,73 @@ class BattlesController < ApplicationController
     end
   end
 
+  # get /battles/:id/datasheet/:datasheet_id/:team
+  def change_unit
+    @battle = Battle.find(params[:id])
+    @datasheet = Datasheet.find_by(id: params[:datasheet_id])
+    @unit = Unit.new
+    @unit.name = @datasheet.name
+    @unit.role = @datasheet.role
+    @unit.power = @datasheet.power
+    @unit.movement = @datasheet.movement
+    @unit.shooting_skill = @datasheet.shooting_skill
+    @unit.strength = @datasheet.strength
+    @unit.combat_skill = @datasheet.combat_skill
+    @unit.attacks = @datasheet.attacks
+    @unit.wounds = @datasheet.wounds
+    @unit.leadership = @datasheet.leadership
+    @unit.armor_save = @datasheet.armor_save
+    @unit.invul_shooting = @datasheet.invul_shooting
+    @unit.invul_combat = @datasheet.invul_combat
+    @unit.single_model_point_cost = @datasheet.single_model_point_cost
+    @unit.model_count_increment = @datasheet.model_count_increment
+    @unit.power_for_each_increment = @datasheet.power_for_each_increment
+    @unit.min_model_count = @datasheet.min_model_count
+    @unit.max_model_count = @datasheet.max_model_count
+    @unit.slots = @datasheet.slots
+    @unit.toughness = @datasheet.toughness
+    @unit.fnp = @datasheet.fnp
+    @unit.faction_keywords = @datasheet.faction_keywords
+    @unit.keywords = @datasheet.keywords
+    @unit.abilities = @datasheet.abilities
+
+    @unit.team = params[:team]
+
+    @battle.units << @unit
+
+    respond_to do |format|
+      if @battle.save
+        format.html { redirect_to @battle, notice: 'Unit was successfully added.' }
+        format.json { render :show, status: :ok, location: @battle }
+      else
+        format.html { render :edit }
+        format.json { render json: @battle.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # get   '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
+  def remove_unit
+    @battle = Battle.find(params[:id])
+    @unit = Unit.find(params[:unit_id])
+
+
+    @unit.destroy
+
+
+
+    respond_to do |format|
+      if @battle.save
+        format.html { redirect_to @battle, notice: 'Unit was successfully Removed.' }
+        format.json { render :show, status: :ok, location: @battle }
+      else
+        format.html { render :edit }
+        format.json { render json: @battle.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_battle
@@ -69,6 +142,6 @@ class BattlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def battle_params
-      params.require(:battle).permit(:name, :user_id)
+      params.permit(:battle, :id, :name, :user_id, :datasheet_id, :team, :unit_id, battle: :name)
     end
 end

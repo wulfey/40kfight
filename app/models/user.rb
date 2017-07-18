@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
     has_many :messages
+
     NAME_REGEX = /\w+/
 
     validates :username, presence: true, uniqueness: { case_sensitive: false },
@@ -10,8 +11,9 @@ class User < ApplicationRecord
     # has_secure_password
 
     validates :email, uniqueness: true
-    has_one :simulation
-    has_many :lists
+    has_many :simulations, through: :battles
+    has_many :battles
+    # has_many :lists
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,

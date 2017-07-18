@@ -11,99 +11,21 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_area :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %>
-    <%= f.text_area :role %>
-  </div>
 
-  <div class="field">
-    <%= f.label :power %>
-    <%= f.number_field :power %>
-  </div>
-
-  <div class="field">
-    <%= f.label :movement %>
-    <%= f.number_field :movement %>
-  </div>
-
-  <div class="field">
-    <%= f.label :shooting_skill %>
-    <%= f.number_field :shooting_skill %>
-  </div>
-
-  <div class="field">
-    <%= f.label :strength %>
-    <%= f.number_field :strength %>
-  </div>
-
-  <div class="field">
-    <%= f.label :combat_skill %>
-    <%= f.number_field :combat_skill %>
-  </div>
-
-  <div class="field">
-    <%= f.label :attacks %>
-    <%= f.number_field :attacks %>
-  </div>
-
-  <div class="field">
-    <%= f.label :wounds %>
-    <%= f.number_field :wounds %>
-  </div>
-
-  <div class="field">
-    <%= f.label :leadership %>
-    <%= f.number_field :leadership %>
-  </div>
-
-  <div class="field">
-    <%= f.label :armor_save %>
-    <%= f.number_field :armor_save %>
-  </div>
-
-  <div class="field">
-    <%= f.label :invul_shooting %>
-    <%= f.number_field :invul_shooting %>
-  </div>
-
-  <div class="field">
-    <%= f.label :invul_combat %>
-    <%= f.number_field :invul_combat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :single_model_point_cost %>
-    <%= f.number_field :single_model_point_cost %>
-  </div>
-
-  <div class="field">
-    <%= f.label :model_count_increment %>
-    <%= f.number_field :model_count_increment %>
-  </div>
-
-  <div class="field">
-    <%= f.label :power_for_each_increment %>
-    <%= f.number_field :power_for_each_increment %>
-  </div>
-
-  <div class="field">
-    <%= f.label :min_model_count %>
-    <%= f.number_field :min_model_count %>
-  </div>
-
-  <div class="field">
-    <%= f.label :max_model_count %>
-    <%= f.number_field :max_model_count %>
-  </div>
-
-  <div class="field">
-    <%= f.label :detachment_id %>
-    <%= f.text_field :detachment_id %>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Target
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <% for i in 1..Datasheet.count   %>
+        <li><a href="/simulations/<%= @simulation.id %>/datasheets/<%=i%>"><%= Datasheet.find(i) %></a></li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="actions">

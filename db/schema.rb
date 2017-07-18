@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713030800) do
+ActiveRecord::Schema.define(version: 20170715020538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20170713030800) do
     t.datetime "updated_at",                 null: false
     t.text     "averages",      default: [],              array: true
     t.index ["simulation_id"], name: "index_attack_groups_on_simulation_id", using: :btree
+  end
+
+  create_table "battles", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_battles_on_user_id", using: :btree
+  end
+
+  create_table "battlesimulations", force: :cascade do |t|
+    t.integer  "battle_id"
+    t.integer  "simulation_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["battle_id"], name: "index_battlesimulations_on_battle_id", using: :btree
+    t.index ["simulation_id"], name: "index_battlesimulations_on_simulation_id", using: :btree
   end
 
   create_table "datasheets", force: :cascade do |t|
@@ -101,6 +118,8 @@ ActiveRecord::Schema.define(version: 20170713030800) do
     t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "battle_id"
+    t.index ["battle_id"], name: "index_lists_on_battle_id", using: :btree
     t.index ["user_id"], name: "index_lists_on_user_id", using: :btree
   end
 
@@ -136,6 +155,8 @@ ActiveRecord::Schema.define(version: 20170713030800) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.text     "resulttext", default: [],              array: true
+    t.integer  "battle_id"
+    t.index ["battle_id"], name: "index_simulations_on_battle_id", using: :btree
     t.index ["user_id"], name: "index_simulations_on_user_id", using: :btree
   end
 
@@ -173,17 +194,18 @@ ActiveRecord::Schema.define(version: 20170713030800) do
     t.integer  "min_model_count"
     t.integer  "max_model_count"
     t.integer  "slots",                    default: 2
-    t.integer  "detachment_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "datasheet_id"
     t.integer  "toughness",                default: 4
     t.integer  "fnp",                      default: 7
-    t.text     "faction_keywords",         default: [],              array: true
-    t.text     "keywords",                 default: [],              array: true
-    t.text     "abilities",                default: [],              array: true
+    t.text     "faction_keywords",         default: [],                 array: true
+    t.text     "keywords",                 default: [],                 array: true
+    t.text     "abilities",                default: [],                 array: true
+    t.integer  "battle_id"
+    t.boolean  "team",                     default: false
+    t.index ["battle_id"], name: "index_units_on_battle_id", using: :btree
     t.index ["datasheet_id"], name: "index_units_on_datasheet_id", using: :btree
-    t.index ["detachment_id"], name: "index_units_on_detachment_id", using: :btree
   end
 
   create_table "units_simulations", id: false, force: :cascade do |t|
@@ -289,14 +311,17 @@ ActiveRecord::Schema.define(version: 20170713030800) do
   end
 
   add_foreign_key "attack_groups", "simulations"
+  add_foreign_key "battles", "users"
   add_foreign_key "detachments", "lists"
+  add_foreign_key "lists", "battles"
   add_foreign_key "lists", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "results", "attack_groups"
   add_foreign_key "results", "simulations"
+  add_foreign_key "simulations", "battles"
   add_foreign_key "simulations", "users"
+  add_foreign_key "units", "battles"
   add_foreign_key "units", "datasheets"
-  add_foreign_key "units", "detachments"
   add_foreign_key "weapons", "datasheets"
   add_foreign_key "weapons", "units"
 end
