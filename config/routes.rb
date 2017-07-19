@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
     get   '/battles/:id/datasheet/:datasheet_id/:team',   to: 'battles#change_unit'
     get   '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
+    post   '/battles/:id',   to: 'battles#add_simulation'
+
 
     # post  '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
 

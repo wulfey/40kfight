@@ -1,91 +1,145 @@
 <div class="page-header">
   <%= link_to battles_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Back
   <% end %>
   <%= link_to edit_battle_path(@battle), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
   <% end %>
   <h1><%= @battle.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
 
-  <br />
+  <br/>
 
 </dl>
 
-
-
-
 <div class="container">
   <div class="panel-footer row">
-      
-        <div class="col-xs-4 text-left">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Attacker
-            <span class="caret"></span></button>
+    <%= form_for :simulation do |f| %>
+    <div class="col-xs-3 text-left">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Attacker
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <% for i in 1..Datasheet.count   %>
+          <li>
+            <a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= FALSE %>"><%= Datasheet.find(i).name%></a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <br/>
+
+      <% if @battle.units.count > 0 %>
+      <% @battle.units.each do |unit| %>
+      <ul class="list-group">
+        <% if unit.team == FALSE %>
+        <li class="list-group-item">
+          <label for=<%="simulation_attacker_#{unit.id.to_s}"%>>
+            <%= unit.name + " - "%>
+          </label>
+          <%= f.radio_button(:attacker, "#{unit.id.to_s}") %>
+          <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
+            <span class="pull-right glyphicon glyphicon-remove"></span>
+          </a>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="col-xs-6 text-center">
+      <%= f.submit "Assign Target" %>
+      <br/>
+      <br/>
+      <% @battle.simulations.each do |sim| %>
+      <div class="btn-group" role="group" aria-label="Assigned Targets">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default"><%= sim.attacker.name[0..10]%></button>
+
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Weps
+              <span class="caret"></span>
+            </button>
+
             <ul class="dropdown-menu">
-              <% for i in 1..Datasheet.count   %>
-                <li><a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= FALSE %>"><%= Datasheet.find(i).name%></a></li>
+              <% for i in 1..sim.attacker.slots do %>
+
+                <% sim.attacker.weapons.each do |wep| %>
+                <li>
+                  <% if wep.slot == i %>
+                    <a href="#"><%= wep.name%></a>
+                  <% end %>
+                </li>
+
+                <% end %>
+                <li role="separator" class="divider"></li>
               <% end %>
             </ul>
           </div>
-          <br />
+
+          <button type="button" class="btn btn-default"><%= sim.target.name[0..10]%></button>
 
 
-            <% if @battle.units.count > 0 %>
-              <% @battle.units.each do |unit| %>
-                <ul class="list-group">
-                  <% if unit.team == FALSE %>
-                    <li class="list-group-item">
-                      <%= unit.name + " - "%>
-                        <label><input id="attacker_id" type="radio" value= "<%=unit.id%>"   name="attacker"></label>
-                      <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>"><span class="pull-right glyphicon glyphicon-remove"></span></a>
-                    </li>
-                  <% end %>
-                </ul>
-              <% end %>
-            <% end %>
 
-      </div>
-
-      <div class="col-xs-4 text-center">
-        <form action="/action_page.php">
-          <br />
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-      <div class="col-xs-4 text-right">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Target
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <% for i in 1..Datasheet.count   %>
-              <li><a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= TRUE %>"><%= Datasheet.find(i).name%></a></li>
-            <% end %>
-          </ul>
-        </div>
-
-
-          <% if @battle.units.count > 0 %>
-            <% @battle.units.each do |unit| %>
-              <ul class="list-group">
-                <% if unit.team == TRUE %>
-                  <li class="list-group-item">
-                    <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>"><span class="pull-left glyphicon glyphicon-remove"></span></a>
-                    <label><input id="target_id" type="radio" value= "<%=unit.id%>" name="target"></label>
-                    <%= " - " + unit.name %>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
+          <%= link_to any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" do %>
+            <span class="glyphicon glyphicon-screenshot"></span>
           <% end %>
 
+          <a href="#" class="btn btn-danger btn-default">
+            <span class="glyphicon glyphicon glyphicon glyphicon-remove-circle"></span>
+          </a>
+
+        </div>
       </div>
+      <% end %>
+    </div>
 
+    <div class="col-xs-3 text-right">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Target
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <% for i in 1..Datasheet.count   %>
+          <li>
+            <a href="/battles/<%= @battle.id %>/datasheet/<%=i%>/<%= TRUE %>"><%= Datasheet.find(i).name%></a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <br/>
 
+      <% if @battle.units.count > 0 %>
+      <% @battle.units.each do |unit| %>
+      <ul class="list-group">
+        <% if unit.team == TRUE %>
+        <li class="list-group-item">
+          <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
+            <span class="pull-left glyphicon glyphicon-remove"></span>
+          </a>
+          <%= f.radio_button(:target, "#{unit.id.to_s}") %>
+          <label for=<%="simulation_target_#{unit.id.to_s}"%>><%= " - " + unit.name%></label>
+        </li>
+        <% end %>
+      </ul>
+      <% end %>
+      <% end %>
+
+    </div>
+    <% end %>
+
+  </div>
+
+  <div class="message-wr">
+    <%= render '/messages/messages' %>
+    <!-- <%= render '/messages/message_form' %> -->
   </div>
 </div>

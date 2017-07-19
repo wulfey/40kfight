@@ -1,6 +1,7 @@
 class BattlesController < ApplicationController
   before_action :set_battle, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in?
+  before_action :get_messages
 
   # GET /battles
   # GET /battles.json
@@ -29,7 +30,7 @@ class BattlesController < ApplicationController
   # POST /battles
   # POST /battles.json
   def create
-    @battle = Battle.new(params)
+    @battle = Battle.new(params.require(:battle).permit(:name))
     @battle.user_id = current_user.id
 
     respond_to do |format|
@@ -41,6 +42,34 @@ class BattlesController < ApplicationController
         format.json { render json: @battle.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  # post   '/battles/:id',   to: 'battles#add_simulation'
+  def add_simulation
+    @battle = Battle.find(params[:id])
+    simulation = Simulation.new
+
+
+    atk = params[:simulation][:attacker].to_i
+    targ = params[:simulation][:target].to_i
+    simulation.attacker = Unit.find(atk)
+    simulation.target = Unit.find(targ)
+    simulation.user_id = current_user.id
+    simulation.battle_id = @battle.id
+    simulation.save!
+
+    @battle.simulations << simulation
+    respond_to do |format|
+      if @battle.save
+        format.html { redirect_to @battle, notice: 'Simulation successfully added to Battle.' }
+        format.json { render :show, status: :ok, location: @battle }
+      else
+        format.html { render :edit }
+        format.json { render json: @battle.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   # PATCH/PUT /battles/1
@@ -99,6 +128,10 @@ class BattlesController < ApplicationController
 
     @unit.team = params[:team]
 
+    @datasheet.weapons.each do |wep|
+      @unit.weapons << wep
+    end
+
     @battle.units << @unit
 
     respond_to do |format|
@@ -117,8 +150,10 @@ class BattlesController < ApplicationController
     @battle = Battle.find(params[:id])
     @unit = Unit.find(params[:unit_id])
 
+    Simulation.where(:attacker_id == @unit.id && :battle_id == @battle.id).destroy_all
+    Simulation.where(:target_id == @unit.id && :battle_id == @battle.id).destroy_all
 
-    @unit.destroy
+    Unit.find(params[:unit_id]).destroy!
 
 
 
@@ -142,6 +177,11 @@ class BattlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def battle_params
-      params.permit(:battle, :id, :name, :user_id, :datasheet_id, :team, :unit_id, battle: :name)
+      params.permit(:battle, :id, :name, :user_id, :datasheet_id, :team, :unit_id, :attacker, :simulation, :target)
+    end
+
+    def get_messages
+      @messages = Message.for_display
+      @message  = current_user.messages.build
     end
 end

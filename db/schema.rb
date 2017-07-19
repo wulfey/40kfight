@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715020538) do
+ActiveRecord::Schema.define(version: 20170719000940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 20170715020538) do
   create_table "battles", force: :cascade do |t|
     t.text     "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "pairs",      default: [],              array: true
     t.index ["user_id"], name: "index_battles_on_user_id", using: :btree
   end
 
@@ -152,10 +153,12 @@ ActiveRecord::Schema.define(version: 20170715020538) do
 
   create_table "simulations", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.text     "resulttext", default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "resulttext",  default: [],              array: true
     t.integer  "battle_id"
+    t.integer  "attacker_id"
+    t.integer  "target_id"
     t.index ["battle_id"], name: "index_simulations_on_battle_id", using: :btree
     t.index ["user_id"], name: "index_simulations_on_user_id", using: :btree
   end
@@ -319,6 +322,8 @@ ActiveRecord::Schema.define(version: 20170715020538) do
   add_foreign_key "results", "attack_groups"
   add_foreign_key "results", "simulations"
   add_foreign_key "simulations", "battles"
+  add_foreign_key "simulations", "units", column: "attacker_id"
+  add_foreign_key "simulations", "units", column: "target_id"
   add_foreign_key "simulations", "users"
   add_foreign_key "units", "battles"
   add_foreign_key "units", "datasheets"

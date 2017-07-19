@@ -57,6 +57,7 @@ class SimulationsController < ApplicationController
     @simulation.user_id = current_user.id
 
 
+
     respond_to do |format|
       if @simulation.save
         format.html { redirect_to @simulation, notice: 'Simulation was successfully created.' }
@@ -72,15 +73,15 @@ class SimulationsController < ApplicationController
   def any_attack
     @simulation = Simulation.find(params[:id])
 
-    @lastAG = @simulation.any_attack(@simulation.units.first, @simulation.datasheets.first, params[:iterations])
+    @lastAG = @simulation.any_attack(@simulation.attacker, @simulation.target, params[:iterations])
 
 
 
-    # slots = @simulation.units.first.slots
+    # slots = @simulation.attacker.slots
     # redirect_to "/messages(#{res.results_array[0]})"
     # redirect_to "/messages(:content => '#{@lastAG.results.first.results_array[0]}')"
     if params[:iterations] == "1"
-      for i in 1..@simulation.units.first.slots
+      for i in 1..@simulation.attacker.slots
         content = "Slot ##{i}: "
         @lastAG.results.each do |res|
           if res.slot == i
@@ -127,39 +128,40 @@ class SimulationsController < ApplicationController
     # end
     # redirect_to @simulation
 
+  
   end
-
-  # get /simulations/:id/unit/:unit_id
-  def change_unit
-    @simulation = Simulation.find(params[:id])
-    @simulation.units = []
-    @simulation.units << Unit.find(params[:unit_id])
-    respond_to do |format|
-      if @simulation.save
-        format.html { redirect_to @simulation, notice: 'Attacker Updated.' }
-        format.json { render :show, status: :ok, location: @simulation }
-      else
-        format.html { render :edit }
-        format.json { render json: @simulation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # get /simulations/:id/datasheet/:datasheet_id
-  def change_datasheet
-    @simulation = Simulation.find(params[:id])
-    @simulation.datasheets = []
-    @simulation.datasheets << Datasheet.find(params[:datasheet_id])
-    respond_to do |format|
-      if @simulation.save
-        format.html { redirect_to @simulation, notice: 'Target Updated.' }
-        format.json { render :show, status: :ok, location: @simulation }
-      else
-        format.html { render :edit }
-        format.json { render json: @simulation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #
+  # # get /simulations/:id/unit/:unit_id
+  # def change_unit
+  #   @simulation = Simulation.find(params[:id])
+  #   @simulation.units = []
+  #   @simulation.units << Unit.find(params[:unit_id])
+  #   respond_to do |format|
+  #     if @simulation.save
+  #       format.html { redirect_to @simulation, notice: 'Attacker Updated.' }
+  #       format.json { render :show, status: :ok, location: @simulation }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @simulation.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+  # # get /simulations/:id/datasheet/:datasheet_id
+  # def change_datasheet
+  #   @simulation = Simulation.find(params[:id])
+  #   @simulation.datasheets = []
+  #   @simulation.datasheets << Datasheet.find(params[:datasheet_id])
+  #   respond_to do |format|
+  #     if @simulation.save
+  #       format.html { redirect_to @simulation, notice: 'Target Updated.' }
+  #       format.json { render :show, status: :ok, location: @simulation }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @simulation.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /simulations/1
   # PATCH/PUT /simulations/1.json

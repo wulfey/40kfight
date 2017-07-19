@@ -1,8 +1,14 @@
+
+
+
 class Simulation < ApplicationRecord
 
   belongs_to :battle
-  has_and_belongs_to_many :units
-  has_and_belongs_to_many :datasheets
+
+  belongs_to :attacker, class_name: 'Unit', foreign_key: 'attacker_id'
+  belongs_to :target, class_name: 'Unit', foreign_key: 'target_id'
+
+  accepts_nested_attributes_for :attacker, :target
   has_many :attack_groups, dependent: :destroy
   has_many :results, :through => :attack_groups
 

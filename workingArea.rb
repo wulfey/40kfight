@@ -15,10 +15,19 @@ h.each do |hash|
   print hash[1]
 end
 
+
+
+          <%= link_to "<span class=\"glyphicon glyphicon-screenshot\"></span>".html_safe, any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" %>
+
+
 # print h["alpha"][0] + 1
 # print h["alpha"][0] + 5
 
-# 
+
+<label><input id="attacker_id" type="radio" value= "<%=unit.id%>"   name="attacker"></label>
+
+
+#
 # <div class="container">
 #   <div class="table-responsive">
 #     <table class="table table-striped table-bordered table-hover">
