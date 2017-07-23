@@ -170,39 +170,39 @@ end
 
 
 # create some base units for shooting side
-total = Datasheet.count
-i = 1
-while i <= total do
-    d = Datasheet.find(i)
-    u = Unit.new
-    u.name = d.name
-    u.role = d.role
-    u.power = d.power
-    u.movement = d.movement
-    u.shooting_skill = d.shooting_skill
-    u.strength = d.strength
-    u.combat_skill = d.combat_skill
-    u.attacks = d.attacks
-    u.wounds = d.wounds
-    u.leadership = d.leadership
-    u.armor_save = d.armor_save
-    u.invul_shooting = d.invul_shooting
-    u.invul_combat = d.invul_combat
-    u.single_model_point_cost = d.single_model_point_cost
-    u.model_count_increment = d.model_count_increment
-    u.power_for_each_increment = d.power_for_each_increment
-    u.min_model_count = d.min_model_count
-    u.max_model_count = d.max_model_count
-    u.slots = d.slots
-    u.toughness = d.toughness
-    u.fnp = d.fnp
-    u.faction_keywords = d.faction_keywords
-    u.keywords = d.keywords
-    u.abilities = d.abilities
-    u.save
-    puts "There are now #{Unit.count} rows in the Unit table, at Datasheet numer #{i}, #{d.name}"
-    i+=1
-end
+# total = Datasheet.count
+# i = 1
+# while i <= total do
+#     d = Datasheet.find(i)
+#     u = Unit.new
+#     u.name = d.name
+#     u.role = d.role
+#     u.power = d.power
+#     u.movement = d.movement
+#     u.shooting_skill = d.shooting_skill
+#     u.strength = d.strength
+#     u.combat_skill = d.combat_skill
+#     u.attacks = d.attacks
+#     u.wounds = d.wounds
+#     u.leadership = d.leadership
+#     u.armor_save = d.armor_save
+#     u.invul_shooting = d.invul_shooting
+#     u.invul_combat = d.invul_combat
+#     u.single_model_point_cost = d.single_model_point_cost
+#     u.model_count_increment = d.model_count_increment
+#     u.power_for_each_increment = d.power_for_each_increment
+#     u.min_model_count = d.min_model_count
+#     u.max_model_count = d.max_model_count
+#     u.slots = d.slots
+#     u.toughness = d.toughness
+#     u.fnp = d.fnp
+#     u.faction_keywords = d.faction_keywords
+#     u.keywords = d.keywords
+#     u.abilities = d.abilities
+#     u.save
+#     puts "There are now #{Unit.count} rows in the Unit table, at Datasheet numer #{i}, #{d.name}"
+#     i+=1
+# end
 
 # add weapons to datasheets and weapons
 total = Weapon.count
@@ -210,11 +210,11 @@ i = 1
 while i <= total do
     wep = Weapon.find(i)
     d = Datasheet.find_by(name: wep.datasheet_name)
-    u = Unit.find_by(name: wep.datasheet_name)
+    # u = Unit.find_by(name: wep.datasheet_name)
     d.weapons << wep
-    u.weapons << wep
-    u.save
+    # u.weapons << wep
+    # u.save
     d.save
-    puts "#{wep.name} added to datasheet: #{d.name} and unit: #{u.name} with #{d.weapons.count} total weapons"
+    puts "#{wep.name} added to datasheet: #{d.name} with --#{d.weapons.count}-- weps added to dsheets."
     i+=1
 end

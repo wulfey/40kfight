@@ -19,6 +19,17 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def clear_messages
+    Message.where(:user_id == params[:user_id]).destroy_all
+
+
+    respond_to do |format|
+      format.html { redirect_to request.referrer, notice: 'Results successfully cleared.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
     def get_messages
@@ -27,6 +38,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:content, :username)
+      params.require(:message).permit(:content, :username, :user_id)
     end
 end

@@ -5,13 +5,6 @@ class SimulationsController < ApplicationController
   before_action :get_messages
 
 
-
-
-
-
-
-
-
   # GET /simulations
   # GET /simulations.json
   def index
@@ -112,6 +105,7 @@ class SimulationsController < ApplicationController
       end
     end
 
+# how woudl this work, link to? how do you get data out of a form
 
     # @lastAG.results.each do |res|
     #   message = current_user.messages.build(:content => res.results_array[0], :user_id => current_user.id)
@@ -128,7 +122,7 @@ class SimulationsController < ApplicationController
     # end
     # redirect_to @simulation
 
-  
+
   end
   #
   # # get /simulations/:id/unit/:unit_id

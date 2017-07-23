@@ -10,7 +10,7 @@ class Simulation < ApplicationRecord
 
   accepts_nested_attributes_for :attacker, :target
   has_many :attack_groups, dependent: :destroy
-  has_many :results, :through => :attack_groups
+  has_many :results, :through => :attack_groups, dependent: :destroy
 
     def d6
       rand(1..6)

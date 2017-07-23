@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719000940) do
+ActiveRecord::Schema.define(version: 20170722054602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,15 @@ ActiveRecord::Schema.define(version: 20170719000940) do
     t.integer  "battle_id"
     t.integer  "attacker_id"
     t.integer  "target_id"
+    t.text     "slot_1"
+    t.text     "slot_2"
+    t.text     "slot_3"
+    t.text     "slot_4"
+    t.text     "slot_5"
+    t.text     "slot_6"
+    t.text     "slot_7"
+    t.text     "slot_8"
+    t.text     "slot_9"
     t.index ["battle_id"], name: "index_simulations_on_battle_id", using: :btree
     t.index ["user_id"], name: "index_simulations_on_user_id", using: :btree
   end
@@ -175,6 +184,15 @@ ActiveRecord::Schema.define(version: 20170719000940) do
     t.integer "unit_id"
     t.index ["simulation_id"], name: "index_simulations_units_on_simulation_id", using: :btree
     t.index ["unit_id"], name: "index_simulations_units_on_unit_id", using: :btree
+  end
+
+  create_table "unit_weapons", force: :cascade do |t|
+    t.integer  "weapon_id"
+    t.integer  "unit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unit_id"], name: "index_unit_weapons_on_unit_id", using: :btree
+    t.index ["weapon_id"], name: "index_unit_weapons_on_weapon_id", using: :btree
   end
 
   create_table "units", force: :cascade do |t|
@@ -325,6 +343,8 @@ ActiveRecord::Schema.define(version: 20170719000940) do
   add_foreign_key "simulations", "units", column: "attacker_id"
   add_foreign_key "simulations", "units", column: "target_id"
   add_foreign_key "simulations", "users"
+  add_foreign_key "unit_weapons", "units"
+  add_foreign_key "unit_weapons", "weapons"
   add_foreign_key "units", "battles"
   add_foreign_key "units", "datasheets"
   add_foreign_key "weapons", "datasheets"

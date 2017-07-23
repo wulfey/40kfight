@@ -18,9 +18,12 @@ Rails.application.routes.draw do
     get   '/battles/:id/datasheet/:datasheet_id/:team',   to: 'battles#change_unit'
     get   '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
     post   '/battles/:id',   to: 'battles#add_simulation'
+    delete '/battles/:id/simulations/:sim_id',   to: 'battles#destroy_simulation', as: 'delete_sim_from_battle'
 
+    post '/messages/:user_id',   to: 'messages#clear_messages', as: 'clear_messages'
 
     # post  '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
+
 
     post   '/simulations/:id/any_attack/:iterations', to: 'simulations#any_attack', as: 'any_attack'
 

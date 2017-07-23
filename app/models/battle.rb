@@ -25,6 +25,7 @@ class Battle < ApplicationRecord
   # has_many :detachments, :through :lists
   has_many :lists, dependent: :destroy
   has_many :simulations, dependent: :destroy
+  accepts_nested_attributes_for :simulations
   has_many :units, dependent: :destroy
   has_many :attackers, :through => :simulations, dependent: :destroy
   has_many :targets, :through => :simulations, dependent: :destroy

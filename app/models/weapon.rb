@@ -1,4 +1,4 @@
 class Weapon < ApplicationRecord
       belongs_to :datasheet
-      belongs_to :unit
+      has_many :unit_weapons
 end

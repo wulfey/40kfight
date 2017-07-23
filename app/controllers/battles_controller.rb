@@ -47,12 +47,22 @@ class BattlesController < ApplicationController
 
   # post   '/battles/:id',   to: 'battles#add_simulation'
   def add_simulation
+
     @battle = Battle.find(params[:id])
     simulation = Simulation.new
 
 
     atk = params[:simulation][:attacker].to_i
     targ = params[:simulation][:target].to_i
+
+    if (atk==0 )
+      format.html { redirect_to @battle, notice: 'ERROR: attacker id == 0.' }
+    end
+
+    if (targ==0)
+      format.html { redirect_to @battle, notice: 'ERROR: target id == 0.' }
+    end
+
     simulation.attacker = Unit.find(atk)
     simulation.target = Unit.find(targ)
     simulation.user_id = current_user.id
@@ -71,6 +81,22 @@ class BattlesController < ApplicationController
     end
 
   end
+
+
+    # DELETE /battles/1/simulations/sim_id
+    # DELETE /battles/1.json
+    def destroy_simulation
+      @battle = Battle.find(params[:id])
+      @simulation = Simulation.find(params[:sim_id])
+
+
+      @simulation.destroy
+      respond_to do |format|
+        format.html { redirect_to @battle, notice: 'Simulation was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+
 
   # PATCH/PUT /battles/1
   # PATCH/PUT /battles/1.json
@@ -177,7 +203,7 @@ class BattlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def battle_params
-      params.permit(:battle, :id, :name, :user_id, :datasheet_id, :team, :unit_id, :attacker, :simulation, :target)
+      params.permit(:battle, :id, :name, :user_id, :datasheet_id, :team, :unit_id, :attacker, :simulation, :target, :sim_id)
     end
 
     def get_messages
