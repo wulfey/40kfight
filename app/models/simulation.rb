@@ -246,16 +246,21 @@ class Simulation < ApplicationRecord
 # *****************************************************************
 # *****************************************************************
 # *****************************************************************
-  def any_attack(a, t, iterations)
+  def any_attack(a, t, iterations, weapons)
     #   a = attack, t = target
     ag = AttackGroup.new(attacker: a.name, target: t.name)
     self.attack_groups << ag
     self.save
 
+    selected_weapons = []
+    weapons.each do |id|
+      selected_weapons << Weapon.find(id)
+    end
+
     iterations = iterations.to_i
 
     # for i in 1..iterations
-      a.weapons.each do |wep|
+      selected_weapons.each do |wep|
         res = Result.new
 
 

@@ -15,7 +15,54 @@ h.each do |hash|
   print hash[1]
 end
 
+<script>
+    // wait for the DOM to be loaded
+    $(document).ready(function() {
+        // bind 'myForm' and provide a simple callback function
+        $('#myForm').ajaxForm(function() {
+            alert("Thank you for your comment!");
+        });
+    });
+</script>
 
+<!-- weapon dropdown -->
+<div class="btn-group">
+  <%= form_tag(any_attack_path(sim.id,20), :method => "post") do %>
+
+
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      Weps
+    </button>
+
+    <ul class="dropdown-menu">
+      <% for i in 1..sim.attacker.slots do %>
+      <fieldset>
+        <% sim.attacker.weapons.each do |wep| %>
+
+          <% if wep.slot == i %>
+            <li >
+              <%str = "slot_" + i.to_s%>
+
+              <%= check_box_tag(:weapon, "#{wep.id.to_s}", required: 'required') %>
+              <%= label_tag(:weapon, "#{wep.name}") %>
+              <%= hidden_field_tag(:slot_id, "#{wep.slot}") %>
+
+            </li>
+          <% end %>
+
+        <% end %>
+        <li role="separator" class="divider"></li>
+      </fieldset>
+      <% end %>
+    </ul>
+
+
+
+
+  <%= submit_tag("Slot Attack") do %>
+
+  <span class="glyphicon glyphicon-star"></span>
+  <% end %>
 
           <%= link_to "<span class=\"glyphicon glyphicon-screenshot\"></span>".html_safe, any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" %>
 
@@ -26,6 +73,10 @@ end
 
 <label><input id="attacker_id" type="radio" value= "<%=unit.id%>"   name="attacker"></label>
 
+<input type="radio" class="form-radio-input" id="<%=str%>" value="<%=wep.id.to_s%>" required="required" name="battle[<%=str%>]" checked="checked">
+<label for="<%=str%>" class="form-check-label">
+  <%= wep.name%>
+</label>
 
 #
 # <div class="container">

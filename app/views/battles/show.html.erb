@@ -16,10 +16,13 @@
 
 </dl>
 
-<div class="container">
-  <div class="panel-footer row">
+  <!-- left dropdown and right dropdown? -->
+  <div class="container">
+
     <%= form_for :simulation do |f| %>
-    <div class="col-xs-3 text-left">
+
+    <!-- Attacked dropdown selector -->
+    <div class="col-xs-5 text-left">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Attacker
         </button>
@@ -31,30 +34,30 @@
           <% end %>
         </ul>
       </div>
-      <br/>
 
+      <!-- left list of attacker radios -->
       <% if @battle.units.count > 0 %>
-      <% @battle.units.each do |unit| %>
-      <ul class="list-group">
-        <% if unit.team == FALSE %>
-        <li class="list-group-item">
-          <label for=<%="simulation_attacker_#{unit.id.to_s}"%> class="btn btn-primary active">
-            <%= unit.name%>
-          </label>
-          <%= f.radio_button :attacker, "#{unit.id.to_s}", required: true %>
+        <% @battle.units.each do |unit| %>
+          <ul class="list-group">
+            <% if unit.team == FALSE %>
+              <li class="list-group-item">
+                <label for=<%="simulation_attacker_#{unit.id.to_s}"%>>
+                  <%= unit.name%>
+                </label>
+                <%= f.radio_button :attacker, "#{unit.id.to_s}", required: true %>
 
-          <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
-            <span class="pull-right glyphicon glyphicon-remove"></span>
-          </a>
-        </li>
+                <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
+                  <span class="pull-right glyphicon glyphicon-remove"></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
         <% end %>
-      </ul>
-      <% end %>
       <% end %>
 
     </div>
 
-    <div class="col-xs-3 text-left">
+    <div class="col-xs-5 text-left">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Target
         </button>
@@ -66,7 +69,8 @@
           <% end %>
         </ul>
       </div>
-      <br/>
+      <%= f.submit "Assign Target" %>
+
 
       <% if @battle.units.count > 0 %>
       <% @battle.units.each do |unit| %>
@@ -78,7 +82,7 @@
           </a>
 
           <%= f.radio_button :target, "#{unit.id.to_s}", required: true %>
-          <label for=<%="simulation_target_#{unit.id.to_s}"%> class="btn btn-primary active">
+          <label for=<%="simulation_target_#{unit.id.to_s}"%>>
             <%=unit.name%></label>
 
         </li>
@@ -87,19 +91,21 @@
       <% end %>
       <% end %>
 
-    </div>
 
-    <div class="col-xs-6 text-center">
-      <%= f.submit "Assign Target" %>
       <% end %>
-      <br/>
-      <br/>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="col-xs-8 text-center">
 
       <% @battle.simulations.each do |sim| %>
 
       <div class="btn-group" role="group" aria-label="Assigned Targets">
         <div class="btn-group">
 
+          <!-- attacker dropdown -->
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <%= sim.attacker.name[0..10]%>
@@ -140,6 +146,7 @@
             </ul>
           </div>
 
+          <!-- target dropdown -->
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
               <%= sim.target.name[0..10]%>
@@ -179,52 +186,29 @@
             </ul>
           </div>
 
+
+
+          <!-- ALTERNATE form of checkbox -->
           <div class="btn-group">
-            <%= form_for sim, id: "myForm", url: "#{sim.id}" do |ff| %>
-            <form action="login.php" method="post">
+            <%= form_tag(any_attack_path(sim.id,20), :method => "post") do %>
+
 
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Weps
+                ALT Weps
               </button>
 
               <ul class="dropdown-menu">
-                <% for i in 1..sim.attacker.slots do %>
-                <fieldset>
-                  <% sim.attacker.weapons.each do |wep| %>
-
-                  <% if wep.slot == i %>
-
-                  <li >
-                    <%str = "slot_" + i.to_s%>
-
-                    <input type="radio" class="form-radio-input" id="<%=str%>" value="<%=wep.id.to_s%>" required="required" name="battle[<%=str%>]" checked="checked">
-                    <label for="<%=str%>" class="form-check-label">
-                      <%= wep.name%>
-                    </label>
-
-                  </li>
-                  <% end %>
-
-                  <% end %>
-                  <li role="separator" class="divider"></li>
-                </fieldset>
-                <% end %>
+                <li>
+                    <%= collection_check_boxes(:attacker, :weapons, sim.attacker.weapons, :id, :name) do |b| %>
+                      <div class="collection-check-box">
+                        <%= b.check_box %>
+                        <%= b.label %>
+                      </div>
+                    <% end %>
+                </li>
               </ul>
-            </div>
-
-            <%= ff.submit "X" , class: "btn btn-success btn-default" do%>
-            <span class="glyphicon glyphicon-star"></span>
+            <%= submit_tag("Slot Attack")  %>
             <% end %>
-
-            <script>
-                // wait for the DOM to be loaded
-                $(document).ready(function() {
-                    // bind 'myForm' and provide a simple callback function
-                    $('#myForm').ajaxForm(function() {
-                        alert("Thank you for your comment!");
-                    });
-                });
-            </script>
 
             <%= link_to any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" do %>
             <span class="glyphicon glyphicon-screenshot"></span>
@@ -237,27 +221,26 @@
             <%= link_to delete_sim_from_battle_path(@battle.id, sim.id), method: :delete, class: "btn btn-danger btn-default" do %>
             <span class="glyphicon glyphicon-remove-circle"></span>
             <% end %>
-
-            <% end %>
           </div>
+
         </div>
-        <% end %>
-
-      </div>
-
-    </div>
-
-    <div class="container">
-
-      <div class="message-wr">
-        <%= render '/messages/messages' %>
-        <!-- <%= render '/messages/message_form' %> -->
-      </div>
-
-      <%= link_to clear_messages_path(current_user.id), method: :post, class: "align-center btn btn-warning btn-lg btn-default" do %>
-      <span>
-        Delete Results
-      </span>
       <% end %>
+
     </div>
+  </div>
+
+
+
+  <div class="container">
+
+    <div class="message-wr">
+      <%= render '/messages/messages' %>
+      <!-- <%= render '/messages/message_form' %> -->
+    </div>
+
+    <%= link_to clear_messages_path(current_user.id), method: :post, class: "align-center btn btn-warning btn-lg btn-default" do %>
+    <span>
+      Delete Results
+    </span>
+    <% end %>
   </div>

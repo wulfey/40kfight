@@ -66,7 +66,11 @@ class SimulationsController < ApplicationController
   def any_attack
     @simulation = Simulation.find(params[:id])
 
-    @lastAG = @simulation.any_attack(@simulation.attacker, @simulation.target, params[:iterations])
+    @weapons = params[:attacker][:weapons]
+    @weapons.delete("")
+
+
+    @lastAG = @simulation.any_attack(@simulation.attacker, @simulation.target, params[:iterations], @weapons)
 
 
 
@@ -189,7 +193,7 @@ class SimulationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def simulation_params
-      params.require(:simulation).permit(:id, :user_id, :unit_id, :datasheet_id, :iterations)
+      params.require(:simulation).permit(:id, :user_id, :unit_id, :datasheet_id, :iterations, :attacker, :weapons)
     end
 
     def get_messages
@@ -198,6 +202,6 @@ class SimulationsController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:content, :username, :battle_id)
+      params.require(:message).permit(:content, :username, :battle_id, :weapon, :slot_id)
     end
 end
