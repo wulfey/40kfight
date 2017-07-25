@@ -233,7 +233,7 @@ def arySum (ary)
     sum
 end
 
-def aggressor(models)
+def aggressor(models, rerollHit, rerollWound, toWound, save, name)
   n = models*2
 
   tot = 0
@@ -241,7 +241,7 @@ def aggressor(models)
 
   ary = []
 
-  rolls = 9000
+  rolls = 3000
   rolls.times do
     bary = []
     n.times do
@@ -254,16 +254,116 @@ def aggressor(models)
   megatot = megatot*1.0/rolls
 
   tot += megatot
-  puts megatot
-  puts "aggressors fire on average #{tot}"
+  # puts megatot
+  # puts "aggressors fire on average #{tot}"
+
+  a = tot.floor
+
+  rolls = 10000
+  ary = []
+
+  # to hit
+  rolls.times do
+    a.times do
+      ary << d6
+    end
+  end
+  ary.sort!
+
+  # reroll hit
+  if (rerollHit)
+    while ary[0] < 3
+      ary.shift
+      ary << d6
+    end
+    ary.sort!
+  end
+
+  # drop the misses
+  while ary[0] < 3
+    ary.shift
+  end
+
+  hits = ary.count
+  puts "#{hits*1.0/rolls} average hits"
+  wary = []
+  hits.times do
+    wary << d6
+  end
+
+  # reroll 1s to wound
+  if (rerollWound)
+    wary.sort!
+    while wary[0] == 1
+      wary.shift
+      wary << d6
+    end
+  end
+
+  wary.sort!
+  while wary[0] < toWound
+    wary.shift
+  end
+
+  wounds = wary.count
+  puts "#{wounds*1.0/rolls} average wounds"
+  sary = []
+  wounds.times do
+    sary << d6
+  end
+  sary.sort!
+  sary.reverse!
+  while sary[0] >= save
+    sary.shift
+  end
+  inflicted = sary.count
+
+
+  puts "#{inflicted*1.0/rolls} average killed #{name} a volley"
+
 
 
 
 end
 
-aggressor(6)
+# model
+# aggressor(models, rerollHit, rerollWound, toWound, save, name)
 
-rerollCharge(2)
-rerollCharge(3)
-rerollCharge(4)
-rerollCharge(5)
+
+aggressor(6, true, true, 4, 6, "ork")
+aggressor(6, false, false, 4, 6, "ork")
+
+aggressor(6, true, true, 5, 3, "rhino hullpoints")
+aggressor(6, false, false, 5, 3, "rhino hullpoints")
+
+aggressor(6, true, true, 4, 3, "MEQ")
+aggressor(6, false, false,  4, 3, "MEQ")
+
+aggressor(6, true, true, 6, 3, "knight hullpoints")
+aggressor(6, false, false, 6, 3, "knight hullpoints")
+
+aggressor(6, true, true, 3, 5, "guard")
+aggressor(6, false, false, 3, 5, "guard")
+
+
+aggressor(6, true, true, 4, 4, "genesstealr")
+aggressor(6, false, false, 4, 4, "genesstealr")
+
+aggressor(6, true, true, 5, 3, "biker wounds")
+aggressor(6, false, false, 5, 3, "biker wounds")
+
+aggressor(6, true, true, 3, 4, "skitarii")
+aggressor(6, false, false, 3, 4, "skitarii")
+
+
+aggressor(6, true, true, 3, 4, "skitarii")
+aggressor(6, false, false, 3, 4, "skitarii")
+
+
+
+
+#
+# rerollCharge(2)
+# rerollCharge(3)
+# rerollCharge(4)
+# rerollCharge(5)

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     # post  '/battles/:id/unit/:unit_id',   to: 'battles#remove_unit'
 
 
-    post   '/simulations/:id/any_attack/:iterations', to: 'simulations#any_attack', as: 'any_attack'
+    post   '/simulations/:id/any_attack', to: 'simulations#any_attack', as: 'any_attack'
 
 
     resources :datasheets

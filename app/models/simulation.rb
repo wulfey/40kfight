@@ -79,8 +79,22 @@ class Simulation < ApplicationRecord
 
     def runAttack(a, t, atks, str, rend, dmg, wepd3, wepd6, abilities, wepID, wepDAMd3, wepDAMd6, res, iterations)
 
-
         wep = Weapon.find(wepID)
+
+
+        attackerAbilites = []
+        a.abilities.each do |abil|
+          attackerAbilites << abil
+        end
+        wep.abilities.each do |abil|
+          attackerAbilites << abil
+        end
+
+        targetAbilities = []
+        t.abilities.each do |abil|
+          targetAbilities << abil
+        end
+
 
         ranged = true
         skill = a.shooting_skill
@@ -221,6 +235,23 @@ class Simulation < ApplicationRecord
 
         text = "#{Weapon.find(wepID).name}: #{atks} attacks by #{a.min_model_count} #{a.name} against #{t.min_model_count}  #{t.name} hit #{attack_roll.count} times and wounded #{wound_roll.count} times  with #{failedSaves} failed saves. Dealt #{damageDealt}, thereby killing #{kills} models."
 
+        if attackerAbilites.count > 0 || targetAbilities.count > 0
+          unhandled = "UNHANDLED: "
+          attackerAbilites.each do |abil|
+            unhandled += ", a.#{abil}"
+          end
+          targetAbilities.each do |abil|
+            unhandled += ", t.#{abil}"
+          end
+          unhandled += ".  "
+          text += unhandled
+        end
+
+
+
+
+
+
 
         res.hitCount += attack_roll.count
         res.woundCount += wound_roll.count
@@ -231,7 +262,6 @@ class Simulation < ApplicationRecord
         res.woundsdealt += damageDealt
         res.attacker = a.name
         res.target = t.name
-
 
 
 
@@ -268,6 +298,7 @@ class Simulation < ApplicationRecord
 
 
         # get first subweapon parameters
+        # this is a hack, iterations is just multiplying the attack counts, we divide later
         atks = wep.firstShootAttacks * iterations
         str = wep.firstShootStrength
         rend = wep.firstShootRend
@@ -372,7 +403,7 @@ class Simulation < ApplicationRecord
       ary = []
       wepHash.each do |namedWeapon|
 
-        averageText = "Averages for #{iterations.to_i} attacks by #{a.min_model_count} #{a.name} against #{t.min_model_count}  #{t.name} using #{namedWeapon[0]}:  #{namedWeapon[1][0]/iterations} hits with  #{namedWeapon[1][1]/iterations} wounds, and #{namedWeapon[1][2]/iterations} failed saves. Dealt #{namedWeapon[1][3]/iterations}, thereby killing average of #{namedWeapon[1][4]/iterations} models."
+        averageText = "Averages for #{iterations.to_i} attacks by #{a.min_model_count} #{a.name} against #{t.min_model_count}  #{t.name} using #{namedWeapon[0]}:  avg #{(namedWeapon[1][0]/iterations).round(2)} hits with  #{(namedWeapon[1][1]/iterations).round(2)} wounds, and #{(namedWeapon[1][2]/iterations).round(2)} failed saves. Dealt #{(namedWeapon[1][3]/iterations).round(2)}, thereby killing average of #{(namedWeapon[1][4]/iterations).round(2)} models."
 
         # puts "**************************************"
         # print averageText

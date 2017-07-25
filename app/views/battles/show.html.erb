@@ -40,7 +40,7 @@
         <% @battle.units.each do |unit| %>
           <ul class="list-group">
             <% if unit.team == FALSE %>
-              <li class="list-group-item">
+              <li class="">
                 <label for=<%="simulation_attacker_#{unit.id.to_s}"%>>
                   <%= unit.name%>
                 </label>
@@ -69,21 +69,22 @@
           <% end %>
         </ul>
       </div>
-      <%= f.submit "Assign Target" %>
+
 
 
       <% if @battle.units.count > 0 %>
       <% @battle.units.each do |unit| %>
       <ul class="list-group">
         <% if unit.team == TRUE %>
-        <li class="list-group-item">
-          <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
-            <span class="pull-left glyphicon glyphicon-remove"></span>
-          </a>
+        <li class="">
+
 
           <%= f.radio_button :target, "#{unit.id.to_s}", required: true %>
           <label for=<%="simulation_target_#{unit.id.to_s}"%>>
             <%=unit.name%></label>
+            <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
+              <span class="pull-right glyphicon glyphicon-remove"></span>
+            </a>
 
         </li>
         <% end %>
@@ -92,13 +93,23 @@
       <% end %>
 
 
-      <% end %>
+          <%= f.submit "Assign Target", class: "pull-right btn btn-warning btn-lg btn-default" %>
+
+          <% end %>
+          <%= link_to clear_messages_path(current_user.id), method: :post, class: "pull-right btn btn-warning btn-lg btn-default" do %>
+          <span>
+            Delete Results
+          </span>
+          <% end %>
+
     </div>
+
+
   </div>
 
 
   <div class="container">
-    <div class="col-xs-8 text-center">
+    <div class="col-xs-10 text-center">
 
       <% @battle.simulations.each do |sim| %>
 
@@ -114,34 +125,34 @@
 
             <ul class="dropdown-menu">
               <li>
-                <a href="#"><%= sim.attacker.name%></a>
+              <%= sim.attacker.name%>
               </li>
               <li>
-                <a href="#"><%= sim.attacker.role%></a>
+                <%= sim.attacker.role%>
               </li>
               <li>
-                <a href="#">Power:
-                  <%= sim.attacker.power%></a>
+                Power:
+                  <%= sim.attacker.power%>
               </li>
               <li>
-                <a href="#">BS:
-                  <%= sim.attacker.combat_skill%>+</a>
+                BS:
+                  <%= sim.attacker.combat_skill%>+
               </li>
               <li>
-                <a href="#">WS:
-                  <%= sim.attacker.shooting_skill%>+</a>
+                WS:
+                  <%= sim.attacker.shooting_skill%>+
               </li>
               <li>
-                <a href="#">Toughness:
-                  <%= sim.attacker.name%></a>
+                Toughness:
+                  <%= sim.attacker.toughness%>
               </li>
               <li>
-                <a href="#">Wounds:
-                  <%= sim.attacker.name%></a>
+                Wounds:
+                  <%= sim.attacker.wounds%>
               </li>
               <li>
-                <a href="#">Model Count:
-                  <%= sim.attacker.min_model_count%></a>
+                Model Count:
+                  <%= sim.attacker.min_model_count%>
               </li>
             </ul>
           </div>
@@ -154,34 +165,32 @@
 
             <ul class="dropdown-menu">
               <li>
-                <a href="#"><%= sim.target.name%></a>
+                <%= sim.target.name%>
               </li>
               <li>
-                <a href="#"><%= sim.target.role%></a>
+                <%= sim.target.role%>
               </li>
               <li>
-                <a href="#">Power:
-                  <%= sim.target.power%></a>
+                Power: <%= sim.target.power%>
               </li>
               <li>
-                <a href="#">BS:
-                  <%= sim.target.combat_skill%>+</a>
+                <%= sim.target.combat_skill%>+
               </li>
               <li>
-                <a href="#">WS:
-                  <%= sim.target.shooting_skill%>+</a>
+              WS:
+                  <%= sim.target.shooting_skill%>+
               </li>
               <li>
-                <a href="#">Toughness:
-                  <%= sim.target.toughness%></a>
+              Toughness:
+                  <%= sim.target.toughness%>
               </li>
               <li>
-                <a href="#">Wounds:
-                  <%= sim.target.wounds%></a>
+              Wounds:
+                  <%= sim.target.wounds%>
               </li>
               <li>
-                <a href="#">Model Count:
-                  <%= sim.target.min_model_count%></a>
+                Model Count:
+                  <%= sim.target.min_model_count%>
               </li>
             </ul>
           </div>
@@ -190,38 +199,48 @@
 
           <!-- ALTERNATE form of checkbox -->
           <div class="btn-group">
-            <%= form_tag(any_attack_path(sim.id,20), :method => "post") do %>
+            <%= form_tag(any_attack_path(sim.id), :method => "post", remote: true) do %>
 
 
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                ALT Weps
+                Weapon Selection
               </button>
 
               <ul class="dropdown-menu">
-                <li>
-                    <%= collection_check_boxes(:attacker, :weapons, sim.attacker.weapons, :id, :name) do |b| %>
-                      <div class="collection-check-box">
-                        <%= b.check_box %>
-                        <%= b.label %>
-                      </div>
-                    <% end %>
-                </li>
+                <% for i in 1..sim.attacker.slots do %>
+                  <li role="presentation">
+                      <%= collection_check_boxes(:attacker, :weapons, sim.attacker.weapons, :id, :name) do |b| %>
+                        <% if Weapon.find(b.value).slot == i %>
+                          <div class="collection-check-box">
+                            <%= b.check_box({checked: true})  %>
+                            <%= b.label %>
+                          </div>
+                        <% end %>
+                      <% end %>
+                  </li>
+                  <li role="presentation" class="divider"></li>
+                <% end %>
               </ul>
-            <%= submit_tag("Slot Attack")  %>
+
+              <%= number_field_tag( :iterations, min: 1, max: 40) %>
+
+              <%= submit_tag "Attack", remote: true %>
+
             <% end %>
 
-            <%= link_to any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" do %>
-            <span class="glyphicon glyphicon-screenshot"></span>
-            <% end %>
 
-            <%= link_to any_attack_path(sim.id,40), method: :post, class: "btn btn-warning btn-default" do %>
-            <span class="glyphicon glyphicon-stats"></span>
-            <% end %>
-
-            <%= link_to delete_sim_from_battle_path(@battle.id, sim.id), method: :delete, class: "btn btn-danger btn-default" do %>
-            <span class="glyphicon glyphicon-remove-circle"></span>
-            <% end %>
           </div>
+          <%= link_to any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" do %>
+          <span class="glyphicon glyphicon-screenshot"></span>
+          <% end %>
+
+          <%= link_to any_attack_path(sim.id,40), method: :post, class: "btn btn-warning btn-default" do %>
+          <span class="glyphicon glyphicon-stats"></span>
+          <% end %>
+
+          <%= link_to delete_sim_from_battle_path(@battle.id, sim.id), method: :delete, class: "btn btn-danger btn-default" do %>
+          <span class="glyphicon glyphicon-remove-circle"></span>
+          <% end %>
 
         </div>
       <% end %>
@@ -229,18 +248,7 @@
     </div>
   </div>
 
-
-
-  <div class="container">
-
     <div class="message-wr">
       <%= render '/messages/messages' %>
       <!-- <%= render '/messages/message_form' %> -->
     </div>
-
-    <%= link_to clear_messages_path(current_user.id), method: :post, class: "align-center btn btn-warning btn-lg btn-default" do %>
-    <span>
-      Delete Results
-    </span>
-    <% end %>
-  </div>
