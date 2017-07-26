@@ -37,8 +37,9 @@
 
       <!-- left list of attacker radios -->
       <% if @battle.units.count > 0 %>
-        <% @battle.units.each do |unit| %>
+
           <ul class="list-group">
+          <% @battle.units.each do |unit| %>
             <% if unit.team == FALSE %>
               <li class="">
                 <label for=<%="simulation_attacker_#{unit.id.to_s}"%>>
@@ -73,8 +74,9 @@
 
 
       <% if @battle.units.count > 0 %>
-      <% @battle.units.each do |unit| %>
+
       <ul class="list-group">
+        <% @battle.units.each do |unit| %>
         <% if unit.team == TRUE %>
         <li class="">
 
@@ -222,7 +224,7 @@
                 <% end %>
               </ul>
 
-              <%= number_field_tag( :iterations, min: 1, max: 40) %>
+              <%= number_field_tag( :iterations) %>
 
               <%= submit_tag "Attack", remote: true %>
 

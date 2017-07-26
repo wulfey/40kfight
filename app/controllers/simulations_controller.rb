@@ -70,17 +70,23 @@ class SimulationsController < ApplicationController
     @weapons = params[:attacker][:weapons]
     @weapons.delete("")
 
+    iter = params[:iterations].to_i
+    if iter < 1
+      iter = 1
+    end
+    if iter > 40
+      iter = 40
+    end
 
 
-
-    @lastAG = @simulation.any_attack(@simulation.attacker, @simulation.target, params[:iterations], @weapons)
+    @lastAG = @simulation.any_attack(@simulation.attacker, @simulation.target, iter, @weapons)
 
 
 
     # slots = @simulation.attacker.slots
     # redirect_to "/messages(#{res.results_array[0]})"
     # redirect_to "/messages(:content => '#{@lastAG.results.first.results_array[0]}')"
-    if params[:iterations] == "1"
+    if iter == 1
       for i in 1..@simulation.attacker.slots
         content = "Slot ##{i}: "
         @lastAG.results.each do |res|

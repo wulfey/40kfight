@@ -13,6 +13,7 @@ gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'roo'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

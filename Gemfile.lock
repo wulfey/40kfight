@@ -271,6 +271,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails
   taps
   tether-rails
   turbolinks (~> 5)
