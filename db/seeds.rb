@@ -90,7 +90,7 @@ csv2.each do |row|
     t.abilities_second << row['abilities_second']
     t.abilities_third << row['abilities_third']
     t.abilities_fourth << row['abilities_fourth']
-
+    t.datasheet_id = Datasheet.find_by(name: t.datasheet_name).id
 
 
 
