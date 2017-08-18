@@ -22,7 +22,7 @@
     <%= form_for :simulation do |f| %>
 
     <!-- Attacked dropdown selector -->
-    <div class="col-xs-5 text-left">
+    <div class="col-xs-4 text-left">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Attacker
         </button>
@@ -41,7 +41,7 @@
           <ul class="list-group">
           <% @battle.units.each do |unit| %>
             <% if unit.team == FALSE %>
-              <li class="">
+              <li>
                 <label for=<%="simulation_attacker_#{unit.id.to_s}"%>>
                   <%= unit.name%>
                 </label>
@@ -58,7 +58,7 @@
 
     </div>
 
-    <div class="col-xs-5 text-left">
+    <div class="col-xs-4 text-left">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add Target
         </button>
@@ -78,39 +78,45 @@
       <ul class="list-group">
         <% @battle.units.each do |unit| %>
         <% if unit.team == TRUE %>
-        <li class="">
+        <li >
 
 
-          <%= f.radio_button :target, "#{unit.id.to_s}", required: true %>
+
           <label for=<%="simulation_target_#{unit.id.to_s}"%>>
-            <%=unit.name%></label>
-            <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
-              <span class="pull-right glyphicon glyphicon-remove"></span>
-            </a>
+          <%=unit.name%></label>
+          <%= f.radio_button :target, "#{unit.id.to_s}", required: true %>
+          <a href="/battles/<%= @battle.id %>/unit/<%=unit.id%>">
+            <span class="pull-right glyphicon glyphicon-remove"></span>
+          </a>
 
         </li>
         <% end %>
       </ul>
       <% end %>
       <% end %>
+      <br />
 
 
-          <%= f.submit "Assign Target", class: "pull-right btn btn-warning btn-lg btn-default" %>
 
-          <% end %>
-          <%= link_to clear_messages_path(current_user.id), method: :post, class: "pull-right btn btn-warning btn-lg btn-default" do %>
-          <span>
-            Delete Results
-          </span>
-          <% end %>
 
+    </div>
+    <div class="col-xs-3 pull-left">
+        <%= f.submit "Assign Target", class: "pull-right btn btn-warning btn-lg btn-default" %>
+
+        <% end %>
+        <%= link_to clear_messages_path(current_user.id), method: :post, class: "pull-right btn btn-warning btn-lg btn-default" do %>
+        <span>
+          Delete Results
+        </span>
+        <% end %>
+              <br />
     </div>
 
 
   </div>
 
 
-  <div class="container">
+
     <div class="col-xs-10 text-center">
 
       <% @battle.simulations.each do |sim| %>
@@ -248,7 +254,7 @@
       <% end %>
 
     </div>
-  </div>
+
 
     <div class="message-wr">
       <%= render '/messages/messages' %>
