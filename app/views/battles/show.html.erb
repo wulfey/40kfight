@@ -237,14 +237,7 @@
             <% end %>
 
 
-          </div>
-          <%= link_to any_attack_path(sim.id,1), method: :post, class: "btn btn-success btn-default" do %>
-          <span class="glyphicon glyphicon-screenshot"></span>
-          <% end %>
 
-          <%= link_to any_attack_path(sim.id,40), method: :post, class: "btn btn-warning btn-default" do %>
-          <span class="glyphicon glyphicon-stats"></span>
-          <% end %>
 
           <%= link_to delete_sim_from_battle_path(@battle.id, sim.id), method: :delete, class: "btn btn-danger btn-default" do %>
           <span class="glyphicon glyphicon-remove-circle"></span>
